@@ -1,0 +1,53 @@
+@import 'tailwindcss';
+@import 'tailwindcss/preflight' @tailwind utilities;
+
+@layer base {
+  :root {
+    --primary: #8ff476;
+  }
+
+  .dark {
+    --primary: #8ff476;
+  }
+
+  body {
+    @apply bg-zinc-950 text-white;
+  }
+
+  code {
+    @apply text-sm;
+  }
+}
+
+@theme {
+  --color-primary: var(--primary);
+}
+
+h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+}
+
+h2 {
+  font-size: clamp(1.5rem, 5vw, 1.875rem);
+}
+
+h3 {
+  font-size: clamp(1rem, 5vw, 1.5rem);
+}
+
+::-webkit-scrollbar {
+  width: 16px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #8ff476;
+}
