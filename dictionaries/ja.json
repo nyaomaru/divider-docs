@@ -1,0 +1,55 @@
+{
+  "top": {
+    "title": "Divider で簡単に文字列と配列を分割できます",
+    "description": "文字列や配列を複数の方法で分割するための軽量ユーティリティ・ライブラリです。",
+    "installation": {
+      "title": "インストール"
+    },
+    "usage": {
+      "title": "使い方",
+      "examples": "な使用例"
+    },
+    "features": {
+      "title": "機能",
+      "stringDivision": {
+        "title": "文字列分割",
+        "description": "シンプルなAPIで、インデックス位置や文字区切りで文字列を分割します。"
+      },
+      "arrayProcessing": {
+        "title": "配列処理",
+        "description": "同じ直感的なインターフェイスで文字列の配列を処理します。"
+      },
+      "nestedArray": {
+        "title": "ネストされた配列",
+        "description": "ネストされた配列をサポートしており、複雑なデータ構造を扱うことができます。"
+      },
+      "flexibleOutput": {
+        "title": "柔軟な出力",
+        "description": "結果を配列として取得するか、個々の変数に対してデストラクチャリングを使用できます。"
+      },
+      "flatteningOption": {
+        "title": "フラットオプション",
+        "description": "フラットオプションを用いることで取得結果を単純化し、単一レベルの配列を得ることができます。"
+      },
+      "mixedDelimiters": {
+        "title": "混合区切り",
+        "description": "インデックス位置と文字区切りを同じ操作で結合できます。"
+      }
+    },
+    "api": {
+      "title": "API リファレンス",
+      "function": {
+        "parameters": {
+          "title": "パラメーター",
+          "input": "String か Array",
+          "dividers": "数値 (インデックス位置) または文字列 (文字区切り)",
+          "options": "任意設定のオプション"
+        },
+        "options": {
+          "title": "オプション",
+          "flatten": "Boolean - trueの場合、結果を1つの配列にフラット化します。"
+        }
+      }
+    }
+  }
+}
