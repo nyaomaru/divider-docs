@@ -1,0 +1,55 @@
+{
+  "top": {
+    "title": "Eenvoudig strings en arrays delen",
+    "description": "Een lichtgewicht utilitybibliotheek om strings en arrays op meerdere manieren te verdelen",
+    "installation": {
+      "title": "Installatie"
+    },
+    "usage": {
+      "title": "Gebruik",
+      "examples": "Voorbeelden"
+    },
+    "features": {
+      "title": "Kenmerken",
+      "stringDivision": {
+        "title": "String Divisie",
+        "description": "Verdeel strings door indexposities of karakterscheidingstekens met een eenvoudige API."
+      },
+      "arrayProcessing": {
+        "title": "Array Verwerking",
+        "description": "Verwerk matrices van strings met dezelfde intuïtieve interface."
+      },
+      "nestedArray": {
+        "title": "Geneste Array",
+        "description": "Verwerk complexe gegevens structuren met ondersteuning voor geneste arrays."
+      },
+      "flexibleOutput": {
+        "title": "Flexibele uitvoer",
+        "description": "Verkrijg resultaten als arrays of gebruik destructurering voor individuele variabelen."
+      },
+      "flatteningOption": {
+        "title": "Afvlakken Optie",
+        "description": "Vereenvoudig de resultaten met de optie Afvlakken om een array op één niveau te krijgen."
+      },
+      "mixedDelimiters": {
+        "title": "Gemengde scheidingstekens",
+        "description": "Combineer indexposities en teken scheidingstekens in dezelfde bewerking."
+      }
+    },
+    "api": {
+      "title": "API Referentie",
+      "function": {
+        "parameters": {
+          "title": "Parameters",
+          "input": "String of Array om te delen",
+          "dividers": "Numbers (index posities) of strings (karakter scheidingstekens)",
+          "options": "Optioneel configuratieobject"
+        },
+        "options": {
+          "title": "Opties",
+          "flatten": "Boolean - Indien waar, maakt het resultaat plat in een enkele matrix"
+        }
+      }
+    }
+  }
+}

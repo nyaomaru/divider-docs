@@ -1,0 +1,55 @@
+{
+  "top": {
+    "title": "Divide strings and arrays with ease",
+    "description": "A lightweight utility library for dividing strings and arrays in multiple ways",
+    "installation": {
+      "title": "Installation"
+    },
+    "usage": {
+      "title": "Usage",
+      "examples": "Examples"
+    },
+    "features": {
+      "title": "Features",
+      "stringDivision": {
+        "title": "String Division",
+        "description": "Divide strings by index positions or character delimiters with a simple API."
+      },
+      "arrayProcessing": {
+        "title": "Array Processing",
+        "description": "Process arrays of strings with the same intuitive interface."
+      },
+      "nestedArray": {
+        "title": "Nested Array",
+        "description": "Handle complex data structures with support for nested arrays."
+      },
+      "flexibleOutput": {
+        "title": "Flexible Output",
+        "description": "Get results as arrays or use destructuring for individual variables."
+      },
+      "flatteningOption": {
+        "title": "Flattening Option",
+        "description": "Simplify results with the flatten option to get a single-level array."
+      },
+      "mixedDelimiters": {
+        "title": "Mixed Delimiters",
+        "description": "Combine index positions and character delimiters in the same operation."
+      }
+    },
+    "api": {
+      "title": "API Reference",
+      "function": {
+        "parameters": {
+          "title": "Parameters",
+          "input": "String or array to divide",
+          "dividers": "Numbers (index positions) or strings (character delimiters)",
+          "options": "Optional configuration object"
+        },
+        "options": {
+          "title": "Options",
+          "flatten": "Boolean - When true, flattens the result into a single array"
+        }
+      }
+    }
+  }
+}
