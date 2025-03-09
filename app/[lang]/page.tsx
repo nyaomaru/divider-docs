@@ -3,14 +3,13 @@ import { CopyButton } from '@/ui/components/copy-button';
 import { FeatureCard } from '@/ui/components/feature-card';
 import { CodeBlock } from '@/ui/components/code-block';
 import { installTabs, installCode, usageTabs, usageCode } from '@/lib/docs';
-import { getDictionary } from '@/lib/dictionaries';
+import { getDictionary, type Locale } from '@/lib/dictionaries';
 import Image from 'next/image';
-import { Toilet } from 'lucide-react';
 
 export default async function DividerDocs({
   params,
 }: {
-  params: Promise<{ lang: 'en' | 'nl' }>;
+  params: Promise<{ lang: Locale }>;
 }) {
   const { lang } = await params;
   const dict = await getDictionary(lang ?? 'en');

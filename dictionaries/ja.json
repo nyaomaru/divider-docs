@@ -1,6 +1,6 @@
 {
   "top": {
-    "title": "Divider で簡単に文字列と配列を分割できます",
+    "title": "Divider で、簡単に文字列と配列を分割できます",
     "description": "文字列や配列を複数の方法で分割するための軽量ユーティリティ・ライブラリです。",
     "installation": {
       "title": "インストール"

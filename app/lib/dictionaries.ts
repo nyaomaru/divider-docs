@@ -1,6 +1,6 @@
 import 'server-only';
 
-type Locale = 'en' | 'nl' | 'ja';
+export type Locale = 'en' | 'nl' | 'ja';
 
 const dictionaries = {
   en: () =>

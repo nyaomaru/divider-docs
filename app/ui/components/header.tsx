@@ -1,6 +1,8 @@
+import { Github, Download } from 'lucide-react';
+
 import { LogoLink } from '@/ui/components/logo-link';
 import { Button } from '@/ui/components/button';
-import { Github, Download } from 'lucide-react';
+import { LanguageSwitcher } from '@/ui/components/language-switcher';
 
 export function Header() {
   return (
@@ -31,6 +33,7 @@ export function Header() {
               GitHub
             </a>
           </Button>
+          <LanguageSwitcher />
         </div>
       </div>
     </header>
