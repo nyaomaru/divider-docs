@@ -6,7 +6,9 @@ export async function Footer() {
       <div className='container mx-auto flex flex-col md:flex-row justify-between items-center'>
         <div className='flex items-center gap-2 mb-4 md:mb-0'>
           <LogoLink />
-          <span className='font-medium'>@nyaomaru/divider</span>
+          <span className='font-medium relative before:absolute before:bottom-0 before:left-0 before:h-0.5 before:w-0 before:bg-primary before:transition-all before:duration-300 hover:before:w-full'>
+            @nyaomaru/divider
+          </span>
         </div>
         <div className='text-sm text-zinc-400'>
           Made with 💚 by{' '}
