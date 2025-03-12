@@ -6,6 +6,10 @@ import { installTabs, installCode, usageTabs, usageCode } from '@/lib/docs';
 import { getDictionary, type Locale } from '@/lib/dictionaries';
 import Image from 'next/image';
 
+export async function generateStaticParams() {
+  return [{ lang: 'en' }, { lang: 'ja' }, { lang: 'nl' }];
+}
+
 export default async function DividerDocs({
   params,
 }: {
