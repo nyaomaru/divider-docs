@@ -5,7 +5,7 @@ import type { Metadata } from 'next';
 
 import { Header } from '@/ui/components/header';
 import { Footer } from '@/ui/components/footer';
-import ScrollToTopButton from './ui/components/scroll-to-top-button';
+import { ScrollToTopButton } from '@/ui/components/scroll-to-top-button';
 
 export const metadata: Metadata = {
   title: 'Divider',
