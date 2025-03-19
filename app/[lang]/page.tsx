@@ -2,6 +2,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/ui/components/tabs';
 import { CopyButton } from '@/ui/components/copy-button';
 import { FeatureCard } from '@/ui/components/feature-card';
 import { CodeBlock } from '@/ui/components/code-block';
+import { APIReferenceCard } from '@/ui/divider-docs/api-reference-card';
 import { installTabs, installCode, usageTabs, usageCode } from '@/lib/docs';
 import { getDictionary, type Locale } from '@/lib/dictionaries';
 import Image from 'next/image';
@@ -163,7 +164,59 @@ export default async function DividerDocs({
         <h2 id='api-reference-title' className='text-3xl font-bold mb-6'>
           {dict.top.api.title}
         </h2>
-        <div className='rounded-lg border border-zinc-800 bg-zinc-900 p-6'>
+        <div className='mb-8'>
+          <APIReferenceCard
+            title={'divider(input, ...dividers, options?)'}
+            description='Returns an string array or nested string array of divided strings or arrays.'
+            parameters={[
+              {
+                name: 'input',
+                description: dict.top.api.function.parameters.input,
+              },
+              {
+                name: 'dividers',
+                description: dict.top.api.function.parameters.dividers,
+              },
+              {
+                name: 'options',
+                description: dict.top.api.function.parameters.options,
+              },
+            ]}
+            options={[
+              {
+                name: 'flatten',
+                description: dict.top.api.function.options.flatten,
+              },
+            ]}
+          />
+        </div>
+        <div className='mb-8'>
+          <APIReferenceCard
+            title={'dividerFirst(input, ...dividers, options?)'}
+            description='Returns the first part of the divided string.'
+            parameters={[
+              {
+                name: 'input',
+                description: dict.top.api.function.parameters.input,
+              },
+              {
+                name: 'dividers',
+                description: dict.top.api.function.parameters.dividers,
+              },
+              {
+                name: 'options',
+                description: dict.top.api.function.parameters.options,
+              },
+            ]}
+            options={[
+              {
+                name: 'flatten',
+                description: dict.top.api.function.options.flatten,
+              },
+            ]}
+          />
+        </div>
+        {/* <div className='rounded-lg border border-zinc-800 bg-zinc-900 p-6'>
           <h3 id='divider-function-title' className='text-xl font-bold mb-4'>
             divider(input, ...dividers, options?)
           </h3>
@@ -205,7 +258,7 @@ export default async function DividerDocs({
               </li>
             </ul>
           </div>
-        </div>
+        </div> */}
       </section>
     </main>
   );
