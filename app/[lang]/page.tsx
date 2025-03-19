@@ -216,49 +216,6 @@ export default async function DividerDocs({
             ]}
           />
         </div>
-        {/* <div className='rounded-lg border border-zinc-800 bg-zinc-900 p-6'>
-          <h3 id='divider-function-title' className='text-xl font-bold mb-4'>
-            divider(input, ...dividers, options?)
-          </h3>
-          <div className='mb-4'>
-            <h4 id='divider-parameters-title' className='font-semibold mb-2'>
-              {dict.top.api.function.parameters.title}:
-            </h4>
-            <ul className='list-disc pl-6 space-y-2'>
-              <li>
-                <code className='text-sm bg-zinc-800 px-1 py-0.5 rounded'>
-                  input
-                </code>
-                : {dict.top.api.function.parameters.input}
-              </li>
-              <li>
-                <code className='text-sm bg-zinc-800 px-1 py-0.5 rounded'>
-                  dividers
-                </code>
-                : {dict.top.api.function.parameters.dividers}
-              </li>
-              <li>
-                <code className='text-sm bg-zinc-800 px-1 py-0.5 rounded'>
-                  options
-                </code>
-                : {dict.top.api.function.parameters.options}
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h4 className='font-semibold mb-2' id='divider-options-title'>
-              {dict.top.api.function.options.title}:
-            </h4>
-            <ul className='list-disc pl-6'>
-              <li>
-                <code className='text-sm bg-zinc-800 px-1 py-0.5 rounded'>
-                  flatten
-                </code>
-                : {dict.top.api.function.options.flatten}
-              </li>
-            </ul>
-          </div>
-        </div> */}
       </section>
     </main>
   );
