@@ -216,6 +216,32 @@ export default async function DividerDocs({
             ]}
           />
         </div>
+        <div className='mb-8'>
+          <APIReferenceCard
+            title={'dividerLast(input, ...dividers, options?)'}
+            description='Returns the last part of the divided string.'
+            parameters={[
+              {
+                name: 'input',
+                description: dict.top.api.function.parameters.input,
+              },
+              {
+                name: 'dividers',
+                description: dict.top.api.function.parameters.dividers,
+              },
+              {
+                name: 'options',
+                description: dict.top.api.function.parameters.options,
+              },
+            ]}
+            options={[
+              {
+                name: 'flatten',
+                description: dict.top.api.function.options.flatten,
+              },
+            ]}
+          />
+        </div>
       </section>
     </main>
   );
