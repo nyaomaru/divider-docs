@@ -192,7 +192,7 @@ export default async function DividerDocs({
         </div>
         <div className='mb-8'>
           <APIReferenceCard
-            title={'dividerFirst(input, ...dividers, options?)'}
+            title={'dividerFirst(input, ...dividers)'}
             description='Returns the first part of the divided string.'
             parameters={[
               {
@@ -203,22 +203,12 @@ export default async function DividerDocs({
                 name: 'dividers',
                 description: dict.top.api.function.parameters.dividers,
               },
-              {
-                name: 'options',
-                description: dict.top.api.function.parameters.options,
-              },
-            ]}
-            options={[
-              {
-                name: 'flatten',
-                description: dict.top.api.function.options.flatten,
-              },
             ]}
           />
         </div>
         <div className='mb-8'>
           <APIReferenceCard
-            title={'dividerLast(input, ...dividers, options?)'}
+            title={'dividerLast(input, ...dividers)'}
             description='Returns the last part of the divided string.'
             parameters={[
               {
@@ -228,16 +218,6 @@ export default async function DividerDocs({
               {
                 name: 'dividers',
                 description: dict.top.api.function.parameters.dividers,
-              },
-              {
-                name: 'options',
-                description: dict.top.api.function.parameters.options,
-              },
-            ]}
-            options={[
-              {
-                name: 'flatten',
-                description: dict.top.api.function.options.flatten,
               },
             ]}
           />
