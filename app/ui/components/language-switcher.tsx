@@ -36,6 +36,7 @@ export function LanguageSwitcher() {
           variant='outline'
           size='sm'
           className='data-[state=open]:border-1 data-[state=closed]:border-1 data-[state=open]:text-primary'
+          aria-label='Language'
         >
           <Globe className='h-4 w-4' />
         </Button>
