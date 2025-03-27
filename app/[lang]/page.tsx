@@ -6,6 +6,7 @@ import { APIReferenceCard } from '@/ui/divider-docs/api-reference-card';
 import { installTabs, installCode, usageTabs, usageCode } from '@/lib/docs';
 import { getDictionary, type Locale } from '@/lib/dictionaries';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export async function generateStaticParams() {
   return [{ lang: 'en' }, { lang: 'ja' }, { lang: 'nl' }];
@@ -22,13 +23,15 @@ export default async function DividerDocs({
   return (
     <main className='container mx-auto px-4 py-12'>
       <section className='mb-16 flex flex-col items-center text-center'>
-        <Image
-          className='mb-6'
-          src='/logo.svg'
-          alt='divider logo'
-          width={128}
-          height={128}
-        />
+        <Link href='https://github.com/nyaomaru/divider'>
+          <Image
+            className='mb-6'
+            src='/logo.svg'
+            alt='divider logo'
+            width={128}
+            height={128}
+          />
+        </Link>
         <h1 id='divider-title' className='text-4xl font-bold mb-4'>
           {dict.top.title}
         </h1>
