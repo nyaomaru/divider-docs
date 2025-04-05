@@ -170,7 +170,7 @@ export default async function DividerDocs({
         <div className='mb-8'>
           <APIReferenceCard
             title={'divider(input, ...dividers, options?)'}
-            description='Returns an string array or nested string array of divided strings or arrays.'
+            description={dict.top.api.description.divider}
             parameters={[
               {
                 name: 'input',
@@ -196,7 +196,7 @@ export default async function DividerDocs({
         <div className='mb-8'>
           <APIReferenceCard
             title={'dividerFirst(input, ...dividers)'}
-            description='Returns the first part of the divided string.'
+            description={dict.top.api.description.dividerFirst}
             parameters={[
               {
                 name: 'input',
@@ -212,7 +212,7 @@ export default async function DividerDocs({
         <div className='mb-8'>
           <APIReferenceCard
             title={'dividerLast(input, ...dividers)'}
-            description='Returns the last part of the divided string.'
+            description={dict.top.api.description.dividerLast}
             parameters={[
               {
                 name: 'input',
