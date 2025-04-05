@@ -38,12 +38,19 @@
     },
     "api": {
       "title": "API Referentie",
+      "description": {
+        "divider": "Splitst een string of array van strings op basis van opgegeven scheidingstekens en retourneert een array of geneste array.",
+        "dividerFirst": "Geeft het eerste element van de gesplitste string terug.",
+        "dividerLast": "Geeft het laatste element van de gesplitste string terug.",
+        "dividerLoop": "Verdeelt de invoer in stukken van gelijke grootte op basis van het opgegeven aantal. Handig voor het splitsen op vaste lengte."
+      },
       "function": {
         "parameters": {
           "title": "Parameters",
           "input": "String of Array om te delen",
           "dividers": "Numbers (index posities) of strings (karakter scheidingstekens)",
-          "options": "Optioneel configuratieobject"
+          "options": "Optioneel configuratieobject",
+          "size": "De lengte (aantal tekens) van elk stuk. Moet een positief geheel getal zijn."
         },
         "options": {
           "title": "Opties",
