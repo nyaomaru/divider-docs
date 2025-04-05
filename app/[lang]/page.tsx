@@ -20,6 +20,89 @@ export default async function DividerDocs({
   const { lang } = await params;
   const dict = await getDictionary(lang ?? 'en');
 
+  const apiReferences = [
+    {
+      id: 'divider',
+      title: 'divider(input, ...dividers, options?)',
+      description: dict.top.api.description.divider,
+      parameters: [
+        {
+          name: 'input',
+          description: dict.top.api.function.parameters.input,
+        },
+        {
+          name: 'dividers',
+          description: dict.top.api.function.parameters.dividers,
+        },
+        {
+          name: 'options',
+          description: dict.top.api.function.parameters.options,
+        },
+      ],
+      options: [
+        {
+          name: 'flatten',
+          description: dict.top.api.function.options.flatten,
+        },
+      ],
+    },
+    {
+      id: 'dividerFirst',
+      title: 'dividerFirst(input, ...dividers)',
+      description: dict.top.api.description.dividerFirst,
+      parameters: [
+        {
+          name: 'input',
+          description: dict.top.api.function.parameters.input,
+        },
+        {
+          name: 'dividers',
+          description: dict.top.api.function.parameters.dividers,
+        },
+      ],
+    },
+    {
+      id: 'dividerLast',
+      title: 'dividerLast(input, ...dividers)',
+      description: dict.top.api.description.dividerLast,
+      parameters: [
+        {
+          name: 'input',
+          description: dict.top.api.function.parameters.input,
+        },
+        {
+          name: 'dividers',
+          description: dict.top.api.function.parameters.dividers,
+        },
+      ],
+    },
+    {
+      id: 'dividerLoop',
+      title: 'dividerLoop(input, size, options?)',
+      description: dict.top.api.description.dividerLoop,
+      parameters: [
+        {
+          name: 'input',
+          description: dict.top.api.function.parameters.input,
+        },
+        {
+          name: 'size',
+          description: dict.top.api.function.parameters.size,
+        },
+        {
+          name: 'options',
+          description: dict.top.api.function.parameters.options,
+        },
+      ],
+      options: [
+        {
+          name: 'flatten',
+          description: dict.top.api.function.options.flatten,
+        },
+      ],
+    },
+  ];
+
   return (
     <main className='container mx-auto px-4 py-12'>
       <section className='mb-16 flex flex-col items-center text-center'>
@@ -167,90 +250,16 @@ export default async function DividerDocs({
         <h2 id='api-reference-title' className='text-3xl font-bold mb-6'>
           {dict.top.api.title}
         </h2>
-        <div className='mb-8'>
-          <APIReferenceCard
-            title={'divider(input, ...dividers, options?)'}
-            description={dict.top.api.description.divider}
-            parameters={[
-              {
-                name: 'input',
-                description: dict.top.api.function.parameters.input,
-              },
-              {
-                name: 'dividers',
-                description: dict.top.api.function.parameters.dividers,
-              },
-              {
-                name: 'options',
-                description: dict.top.api.function.parameters.options,
-              },
-            ]}
-            options={[
-              {
-                name: 'flatten',
-                description: dict.top.api.function.options.flatten,
-              },
-            ]}
-          />
-        </div>
-        <div className='mb-8'>
-          <APIReferenceCard
-            title={'dividerFirst(input, ...dividers)'}
-            description={dict.top.api.description.dividerFirst}
-            parameters={[
-              {
-                name: 'input',
-                description: dict.top.api.function.parameters.input,
-              },
-              {
-                name: 'dividers',
-                description: dict.top.api.function.parameters.dividers,
-              },
-            ]}
-          />
-        </div>
-        <div className='mb-8'>
-          <APIReferenceCard
-            title={'dividerLast(input, ...dividers)'}
-            description={dict.top.api.description.dividerLast}
-            parameters={[
-              {
-                name: 'input',
-                description: dict.top.api.function.parameters.input,
-              },
-              {
-                name: 'dividers',
-                description: dict.top.api.function.parameters.dividers,
-              },
-            ]}
-          />
-        </div>
-        <div className='mb-8'>
-          <APIReferenceCard
-            title={'dividerLoop(input, size, options?)'}
-            description={dict.top.api.description.dividerLoop}
-            parameters={[
-              {
-                name: 'input',
-                description: dict.top.api.function.parameters.input,
-              },
-              {
-                name: 'size',
-                description: dict.top.api.function.parameters.size,
-              },
-              {
-                name: 'options',
-                description: dict.top.api.function.parameters.options,
-              },
-            ]}
-            options={[
-              {
-                name: 'flatten',
-                description: dict.top.api.function.options.flatten,
-              },
-            ]}
-          />
-        </div>
+        {apiReferences.map((api) => (
+          <div key={api.id} className='mb-8'>
+            <APIReferenceCard
+              title={api.title}
+              description={api.description}
+              parameters={api.parameters}
+              options={api.options}
+            />
+          </div>
+        ))}
       </section>
     </main>
   );
