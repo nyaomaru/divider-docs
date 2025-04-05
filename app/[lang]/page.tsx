@@ -225,6 +225,32 @@ export default async function DividerDocs({
             ]}
           />
         </div>
+        <div className='mb-8'>
+          <APIReferenceCard
+            title={'dividerLoop(input, size, options?)'}
+            description={dict.top.api.description.dividerLoop}
+            parameters={[
+              {
+                name: 'input',
+                description: dict.top.api.function.parameters.input,
+              },
+              {
+                name: 'size',
+                description: dict.top.api.function.parameters.size,
+              },
+              {
+                name: 'options',
+                description: dict.top.api.function.parameters.options,
+              },
+            ]}
+            options={[
+              {
+                name: 'flatten',
+                description: dict.top.api.function.options.flatten,
+              },
+            ]}
+          />
+        </div>
       </section>
     </main>
   );

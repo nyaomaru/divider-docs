@@ -38,12 +38,16 @@
     },
     "api": {
       "title": "API リファレンス",
+      "description": {
+        "dividerLoop": "固定幅のチャンクサイズで文字列を分割します。一定の文字数でスライスしたいときに便利です。"
+      },
       "function": {
         "parameters": {
           "title": "パラメーター",
           "input": "String か Array",
           "dividers": "数値 (インデックス位置) または文字列 (文字区切り)",
-          "options": "任意設定のオプション"
+          "options": "任意設定のオプション",
+          "size": "各チャンクのサイズ（文字数）を指定します。正の整数である必要があります。"
         },
         "options": {
           "title": "オプション",

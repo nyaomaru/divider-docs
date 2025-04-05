@@ -38,12 +38,16 @@
     },
     "api": {
       "title": "API Reference",
+      "description": {
+        "dividerLoop": "Divides the input into equal-sized chunks by the given number. Useful for fixed-width slicing."
+      },
       "function": {
         "parameters": {
           "title": "Parameters",
           "input": "String or array to divide",
           "dividers": "Numbers (index positions) or strings (character delimiters)",
-          "options": "Optional configuration object"
+          "options": "Optional configuration object",
+          "size": "The size (number of characters) for each chunk. Must be a positive integer."
         },
         "options": {
           "title": "Options",
