@@ -42,7 +42,8 @@
         "divider": "Returns an string array or nested string array of divided strings or arrays.",
         "dividerFirst": "Returns the first part of the divided string.",
         "dividerLast": "Returns the last part of the divided string.",
-        "dividerLoop": "Divides the input into equal-sized chunks by the given number. Useful for fixed-width slicing."
+        "dividerLoop": "Divides the input into equal-sized chunks by the given number. Useful for fixed-width slicing.",
+        "dividerNumberString": "Divides inputs number and string."
       },
       "function": {
         "parameters": {
