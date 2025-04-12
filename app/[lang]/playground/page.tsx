@@ -5,8 +5,10 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/ui/components/tabs';
 import { Button } from '@/ui/components/button';
 import { divider } from '@nyaomaru/divider';
 
+type PlaygroundInputType = 'string' | 'array';
+
 export default function PlaygroundPage() {
-  const [inputType, setInputType] = useState<'string' | 'array'>('string');
+  const [inputType, setInputType] = useState<PlaygroundInputType>('string');
   const [input, setInput] = useState<string>('');
   const [separators, setSeparators] = useState<string>('');
   const [flatten, setFlatten] = useState<boolean>(false);
@@ -36,7 +38,7 @@ export default function PlaygroundPage() {
 
       <Tabs
         defaultValue='string'
-        onValueChange={(val) => setInputType(val as any)}
+        onValueChange={(val: PlaygroundInputType) => setInputType(val)}
         className='mb-6'
       >
         <TabsList className='mb-4'>
