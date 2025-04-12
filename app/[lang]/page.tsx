@@ -104,7 +104,7 @@ export default async function DividerDocs({
     {
       id: 'dividerNumberString',
       title: 'dividerNumberString(input, options?)',
-      description: dict.top.api.description.dividerLoop,
+      description: dict.top.api.description.dividerNumberString,
       parameters: [
         {
           name: 'input',
