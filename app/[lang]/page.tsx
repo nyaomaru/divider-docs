@@ -101,6 +101,27 @@ export default async function DividerDocs({
         },
       ],
     },
+    {
+      id: 'dividerNumberString',
+      title: 'dividerNumberString(input, options?)',
+      description: dict.top.api.description.dividerNumberString,
+      parameters: [
+        {
+          name: 'input',
+          description: dict.top.api.function.parameters.input,
+        },
+        {
+          name: 'options',
+          description: dict.top.api.function.parameters.options,
+        },
+      ],
+      options: [
+        {
+          name: 'flatten',
+          description: dict.top.api.function.options.flatten,
+        },
+      ],
+    },
   ];
 
   return (

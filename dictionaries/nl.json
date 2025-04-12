@@ -42,7 +42,8 @@
         "divider": "Splitst een string of array van strings op basis van opgegeven scheidingstekens en retourneert een array of geneste array.",
         "dividerFirst": "Geeft het eerste element van de gesplitste string terug.",
         "dividerLast": "Geeft het laatste element van de gesplitste string terug.",
-        "dividerLoop": "Verdeelt de invoer in stukken van gelijke grootte op basis van het opgegeven aantal. Handig voor het splitsen op vaste lengte."
+        "dividerLoop": "Verdeelt de invoer in stukken van gelijke grootte op basis van het opgegeven aantal. Handig voor het splitsen op vaste lengte.",
+        "dividerNumberString": "Verdeelt invoer van number en string."
       },
       "function": {
         "parameters": {
