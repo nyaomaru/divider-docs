@@ -1,4 +1,5 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/ui/components/tabs';
+import { Button } from '@/ui/components/button';
 import { CopyButton } from '@/ui/components/copy-button';
 import { FeatureCard } from '@/ui/components/feature-card';
 import { CodeBlock } from '@/ui/components/code-block';
@@ -142,6 +143,10 @@ export default async function DividerDocs({
         <p className='text-xl text-zinc-400 max-w-2xl mb-8'>
           {dict.top.description}
         </p>
+
+        <Link href={`/${lang}/playground`}>
+          <Button variant='outline'>🚀 Playground 🚀</Button>
+        </Link>
       </section>
 
       <section
