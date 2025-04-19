@@ -1,8 +1,10 @@
 'use client';
 
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/ui/components/tabs';
 import { Button } from '@/ui/components/button';
+import { Breadcrumbs } from '@/ui/components/breadcrumbs';
 import { divider } from '@nyaomaru/divider';
 
 type PlaygroundInputType = 'string' | 'array';
@@ -15,6 +17,8 @@ export default function PlaygroundPage() {
   const [output, setOutput] = useState<unknown>(null);
   const isStringInput = inputType === 'string';
   const isStringArrayInput = inputType === 'array';
+
+  const router = useRouter();
 
   const runDivider = () => {
     const inputValue = isStringInput ? input : input.split(/\r?\n/);
@@ -34,6 +38,10 @@ export default function PlaygroundPage() {
 
   return (
     <main className='container mx-auto px-4 py-12'>
+      <Breadcrumbs
+        paths={[{ label: 'Home', href: '/' }, { label: 'Playground' }]}
+      />
+
       <h1 className='text-2xl font-bold mb-6'>Playground</h1>
 
       <Tabs
@@ -78,7 +86,7 @@ export default function PlaygroundPage() {
         />
       </div>
 
-      <section className='flex items-center gap-4 mb-6'>
+      <section className='ml-1 flex items-center gap-4 mb-6'>
         <Button variant='outline' onClick={runDivider}>
           Run
         </Button>
@@ -96,11 +104,17 @@ export default function PlaygroundPage() {
       </section>
 
       {output !== null && (
-        <div className='p-4 border rounded bg-zinc-800 text-white whitespace-pre-wrap break-words'>
+        <div className='ml-1 p-4 border rounded bg-zinc-800 text-white whitespace-pre-wrap break-words mb-6'>
           <strong>Output:</strong>
           <pre className='mt-2'>{JSON.stringify(output, null, 2)}</pre>
         </div>
       )}
+
+      <div className='ml-1'>
+        <Button variant='outline' onClick={() => router.back()}>
+          ← Back
+        </Button>
+      </div>
     </main>
   );
 }
