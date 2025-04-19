@@ -3,6 +3,7 @@
 import { Globe } from 'lucide-react';
 import { usePathname, useRouter } from 'next/navigation';
 import Image from 'next/image';
+import { useMemo } from 'react';
 import {
   DropdownMenu,
   DropdownMenuTrigger,
@@ -11,21 +12,22 @@ import {
 } from '@radix-ui/react-dropdown-menu';
 
 import { Button } from '@/ui/components/button';
+import { locales } from '@/constants/locales';
 import clsx from 'clsx';
-
-const locales = [
-  { code: 'en', label: 'English', flag: 'https://flagcdn.com/w40/gb.png' },
-  { code: 'nl', label: 'Nederlands', flag: 'https://flagcdn.com/w40/nl.png' },
-  { code: 'ja', label: '日本語', flag: 'https://flagcdn.com/w40/jp.png' },
-];
 
 export function LanguageSwitcher() {
   const router = useRouter();
   const pathname = usePathname();
   const currentLocale = pathname.split('/')[1];
 
+  const localePattern = useMemo(() => {
+    return new RegExp(`^/(${locales.map((l) => l.code).join('|')})(/|$)`);
+  }, []);
+
   const changeLanguage = (locale: string) => {
-    const newPath = `/${locale}${pathname.replace(/^\/(en|nl|ja)/, '')}`;
+    const match = pathname.match(localePattern);
+    const withoutLocale = match ? pathname.replace(match[0], '') : pathname;
+    const newPath = `/${locale}${withoutLocale}`;
     router.push(newPath);
   };
 
