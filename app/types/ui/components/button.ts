@@ -1,4 +1,3 @@
-import type { HTMLAttributes } from 'react';
 import type { VariantProps } from 'class-variance-authority';
 
 export interface ButtonProps
