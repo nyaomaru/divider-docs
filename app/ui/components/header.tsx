@@ -18,6 +18,7 @@ export function Header() {
           <Button variant='outline' size='sm' asChild>
             <a
               href='https://www.npmjs.com/package/@nyaomaru/divider'
+              aria-label='Go to npm registry'
               target='_blank'
               rel='noopener noreferrer'
             >
@@ -28,6 +29,7 @@ export function Header() {
           <Button variant='outline' size='sm' asChild>
             <a
               href='https://github.com/nyaomaru/divider'
+              aria-label='Go to GitHub repository'
               target='_blank'
               rel='noopener noreferrer'
             >

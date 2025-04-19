@@ -1,20 +1,18 @@
-import React from 'react';
 import { Highlight, themes } from 'prism-react-renderer';
-
-type CodeBlockProps = {
-  code: string;
-  language: string;
-};
+import type { CodeBlockProps } from '@/types/ui/components/code-block';
 
 export function CodeBlock({ code, language }: CodeBlockProps) {
   return (
     <Highlight code={code} language={language} theme={themes.oceanicNext}>
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <pre className={`${className} p-4 rounded-lg`} style={style}>
-          {tokens.map((line, i) => (
-            <div key={i} {...getLineProps({ line })}>
-              {line.map((token, key) => (
-                <span key={key} {...getTokenProps({ token })} />
+          {tokens.map((line, index) => (
+            <div key={`line-${index}`} {...getLineProps({ line })}>
+              {line.map((token, tokenIndex) => (
+                <span
+                  key={`token-${index}-${tokenIndex}`}
+                  {...getTokenProps({ token })}
+                />
               ))}
             </div>
           ))}

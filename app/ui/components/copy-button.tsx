@@ -2,10 +2,10 @@
 
 import { useState } from 'react';
 import { Button } from '@/ui/components/button';
-
 import { Copy, Check } from 'lucide-react';
+import type { CopyButtonProps } from '@/types/ui/components/copy-button';
 
-export function CopyButton({ text }: { text: string }) {
+export function CopyButton({ text }: CopyButtonProps) {
   const [copied, setCopied] = useState(false);
 
   const handleCopy = () => {
