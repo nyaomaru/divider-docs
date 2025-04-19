@@ -1,4 +1,4 @@
-import type { APIReferenceCardProps } from '@/types/ui/components/api-reference-card';
+import type { APIReferenceCardProps } from '@/types/ui/divider-docs/api-reference-card';
 
 export function APIReferenceCard({
   title,

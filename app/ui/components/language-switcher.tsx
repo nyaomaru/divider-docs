@@ -1,5 +1,6 @@
 'use client';
 
+import clsx from 'clsx';
 import { Globe } from 'lucide-react';
 import { usePathname, useRouter } from 'next/navigation';
 import Image from 'next/image';
@@ -13,7 +14,6 @@ import {
 
 import { Button } from '@/ui/components/button';
 import { locales } from '@/constants/locales';
-import clsx from 'clsx';
 
 export function LanguageSwitcher() {
   const router = useRouter();
