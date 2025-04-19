@@ -9,27 +9,35 @@ import { divider } from '@nyaomaru/divider';
 
 type PlaygroundInputType = 'string' | 'array';
 
+const STRING = 'string';
+const ARRAY = 'array';
+
 export default function PlaygroundPage() {
   const [inputType, setInputType] = useState<PlaygroundInputType>('string');
   const [input, setInput] = useState<string>('');
   const [separators, setSeparators] = useState<string>('');
   const [flatten, setFlatten] = useState<boolean>(false);
   const [output, setOutput] = useState<unknown>(null);
+  const router = useRouter();
+
   const isStringInput = inputType === 'string';
   const isStringArrayInput = inputType === 'array';
 
-  const router = useRouter();
+  const getParsedInput = (): string | string[] =>
+    isStringInput ? input : input.split(/\r?\n/).filter(Boolean);
 
-  const runDivider = () => {
-    const inputValue = isStringInput ? input : input.split(/\r?\n/);
-    const separatorTokens = separators
+  const getParsedSeparators = (): (string | number)[] =>
+    separators
       .split(/\r?\n|,/)
       .map((s) => s.trim())
       .filter(Boolean)
       .map((s) => (isNaN(Number(s)) ? s : Number(s)));
 
+  const handleRun = () => {
     try {
-      const result = divider(inputValue, ...separatorTokens, { flatten });
+      const result = divider(getParsedInput(), ...getParsedSeparators(), {
+        flatten,
+      });
       setOutput(result);
     } catch (e) {
       setOutput(`Error: ${(e as Error).message}`);
@@ -45,37 +53,35 @@ export default function PlaygroundPage() {
       <h1 className='text-2xl font-bold mb-6'>Playground</h1>
 
       <Tabs
-        defaultValue='string'
+        defaultValue={STRING}
         onValueChange={(val: PlaygroundInputType) => setInputType(val)}
         className='mb-6'
       >
         <TabsList className='mb-4'>
-          <TabsTrigger value='string'>string</TabsTrigger>
-          <TabsTrigger value='array'>string[]</TabsTrigger>
+          <TabsTrigger value={STRING}>string</TabsTrigger>
+          <TabsTrigger value={ARRAY}>string[]</TabsTrigger>
         </TabsList>
-        <TabsContent value='string'>
-          <div className='ml-1'>
-            <textarea
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-              className='w-full h-24 p-2 rounded border bg-zinc-900 text-white'
-              placeholder='Enter string...'
-            />
-          </div>
+
+        <TabsContent value={STRING}>
+          <textarea
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            className='w-full h-24 p-2 rounded border bg-zinc-900 text-white'
+            placeholder='Enter string...'
+          />
         </TabsContent>
-        <TabsContent value='array'>
-          <div className='ml-1'>
-            <textarea
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-              className='w-full h-24 p-2 rounded border bg-zinc-900 text-white'
-              placeholder='Enter strings, one per line...'
-            />
-          </div>
+
+        <TabsContent value={ARRAY}>
+          <textarea
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            className='w-full h-24 p-2 rounded border bg-zinc-900 text-white'
+            placeholder='Enter strings, one per line...'
+          />
         </TabsContent>
       </Tabs>
 
-      <div className='ml-1 mb-6'>
+      <div className='mb-6'>
         <label className='block text-sm font-medium mb-2'>
           Separators (comma or newline separated)
         </label>
@@ -86,10 +92,11 @@ export default function PlaygroundPage() {
         />
       </div>
 
-      <section className='ml-1 flex items-center gap-4 mb-6'>
-        <Button variant='outline' onClick={runDivider}>
+      <section className='flex items-center gap-4 mb-6'>
+        <Button variant='outline' onClick={handleRun}>
           Run
         </Button>
+
         {isStringArrayInput && (
           <label className='flex items-center gap-2'>
             <input
@@ -104,17 +111,15 @@ export default function PlaygroundPage() {
       </section>
 
       {output !== null && (
-        <div className='ml-1 p-4 border rounded bg-zinc-800 text-white whitespace-pre-wrap break-words mb-6'>
+        <div className='p-4 border rounded bg-zinc-800 text-white whitespace-pre-wrap break-words mb-6'>
           <strong>Output:</strong>
           <pre className='mt-2'>{JSON.stringify(output, null, 2)}</pre>
         </div>
       )}
 
-      <div className='ml-1'>
-        <Button variant='outline' onClick={() => router.back()}>
-          ← Back
-        </Button>
-      </div>
+      <Button variant='outline' onClick={() => router.back()}>
+        ← Back
+      </Button>
     </main>
   );
 }
