@@ -1,6 +1,6 @@
-import type { ReactNode } from 'react';
+import type { CardProps } from '@/types/ui/components/card';
 
-export function Card({ id, children }: { id?: string; children: ReactNode }) {
+export function Card({ id, children }: CardProps) {
   return (
     <div
       id={id}
