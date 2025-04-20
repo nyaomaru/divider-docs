@@ -17,6 +17,7 @@ export default function PlaygroundPage() {
   const [input, setInput] = useState<string>('');
   const [separators, setSeparators] = useState<string>('');
   const [flatten, setFlatten] = useState<boolean>(false);
+  const [trim, setTrim] = useState<boolean>(false);
   const [output, setOutput] = useState<unknown>(null);
   const router = useRouter();
 
@@ -37,6 +38,7 @@ export default function PlaygroundPage() {
     try {
       const result = divider(getParsedInput(), ...getParsedSeparators(), {
         flatten,
+        trim,
       });
       setOutput(result);
     } catch (e) {
@@ -98,8 +100,9 @@ export default function PlaygroundPage() {
         </Button>
 
         {isStringArrayInput && (
-          <label className='flex items-center gap-2'>
+          <label htmlFor='flatten-option' className='flex items-center gap-2'>
             <input
+              id='flatten-option'
               type='checkbox'
               checked={flatten}
               onChange={(e) => setFlatten(e.target.checked)}
@@ -108,6 +111,16 @@ export default function PlaygroundPage() {
             Flatten
           </label>
         )}
+        <label htmlFor='trim-option' className='flex items-center gap-2'>
+          <input
+            id='trim-option'
+            type='checkbox'
+            checked={trim}
+            onChange={(e) => setTrim(e.target.checked)}
+            className='accent-white'
+          />
+          Trim
+        </label>
       </section>
 
       {output !== null && (

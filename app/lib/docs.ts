@@ -1,5 +1,4 @@
-type Command = 'npm' | 'pnpm' | 'bun' | 'yarn';
-type Usage = 'basic' | 'advanced';
+import type { Command, Usage } from '@/types/lib/docs';
 
 export const installTabs: Command[] = ['npm', 'pnpm', 'bun', 'yarn'];
 export const usageTabs: Usage[] = ['basic', 'advanced'];
@@ -41,7 +40,10 @@ const dividedWords = divider(words, 2);
 // [['he', 'llo'], ['wo', 'rld']]
 
 const dividedWordsWithFlattenOption = divider(words, 2, { flatten: true });
-// ['he', 'llo', 'wo', 'rld']`;
+// ['he', 'llo', 'wo', 'rld']
+
+const dividedWithTrimOption = divider([' hello ', ' world '], 2, { trim: true });
+// ['h', 'ello', 'w', 'orld']`;
 
   if (usage === 'advanced')
     return `// mixed use of indexes and characters
