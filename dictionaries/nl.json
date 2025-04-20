@@ -55,7 +55,8 @@
         },
         "options": {
           "title": "Opties",
-          "flatten": "Boolean - Indien waar, maakt het resultaat plat in een enkele matrix"
+          "flatten": "Boolean - Indien waar, maakt het resultaat plat in een enkele matrix",
+          "trim": "Boolean - Indien waar, worden witregels uit elk opgedeeld segment verwijderd"
         }
       }
     }

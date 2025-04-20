@@ -45,6 +45,10 @@ export default async function DividerDocs({
           name: 'flatten',
           description: dict.top.api.function.options.flatten,
         },
+        {
+          name: 'trim',
+          description: dict.top.api.function.options.flatten,
+        },
       ],
     },
     {
@@ -100,6 +104,10 @@ export default async function DividerDocs({
           name: 'flatten',
           description: dict.top.api.function.options.flatten,
         },
+        {
+          name: 'trim',
+          description: dict.top.api.function.options.flatten,
+        },
       ],
     },
     {
@@ -119,6 +127,10 @@ export default async function DividerDocs({
       options: [
         {
           name: 'flatten',
+          description: dict.top.api.function.options.flatten,
+        },
+        {
+          name: 'trim',
           description: dict.top.api.function.options.flatten,
         },
       ],
