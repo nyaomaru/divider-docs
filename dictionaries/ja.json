@@ -59,6 +59,29 @@
           "trim": "Boolean - trueの場合、結果に含まれる空白をトリムします。"
         }
       }
+    },
+    "button": {
+      "playground": "遊び場"
+    }
+  },
+  "playground": {
+    "title": "遊び場",
+    "description": "Divider の機能を試すためのインタラクティブな環境です。",
+    "string": {
+      "placeholder": "文字列を入力してください..."
+    },
+    "array": {
+      "placeholder": "文字列を入力してください。一つの要素は一行で表現できます..."
+    },
+    "separator": {
+      "description": "区切り文字を入力してください(カンマまたは改行で区切ることができます)"
+    },
+    "output": {
+      "title": "出力"
+    },
+    "button": {
+      "run": "実行",
+      "back": "← 戻る"
     }
   }
 }

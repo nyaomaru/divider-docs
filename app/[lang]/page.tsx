@@ -6,6 +6,7 @@ import { CodeBlock } from '@/ui/components/code-block';
 import { APIReferenceCard } from '@/ui/divider-docs/api-reference-card';
 import { installTabs, installCode, usageTabs, usageCode } from '@/lib/docs';
 import { getDictionary, type Locale } from '@/lib/dictionaries';
+import { generateApiReferences } from '@/lib/api-references';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -21,121 +22,7 @@ export default async function DividerDocs({
   const { lang } = await params;
   const dict = await getDictionary(lang ?? 'en');
 
-  const apiReferences = [
-    {
-      id: 'divider',
-      title: 'divider(input, ...dividers, options?)',
-      description: dict.top.api.description.divider,
-      parameters: [
-        {
-          name: 'input',
-          description: dict.top.api.function.parameters.input,
-        },
-        {
-          name: 'dividers',
-          description: dict.top.api.function.parameters.dividers,
-        },
-        {
-          name: 'options',
-          description: dict.top.api.function.parameters.options,
-        },
-      ],
-      options: [
-        {
-          name: 'flatten',
-          description: dict.top.api.function.options.flatten,
-        },
-        {
-          name: 'trim',
-          description: dict.top.api.function.options.flatten,
-        },
-      ],
-    },
-    {
-      id: 'dividerFirst',
-      title: 'dividerFirst(input, ...dividers)',
-      description: dict.top.api.description.dividerFirst,
-      parameters: [
-        {
-          name: 'input',
-          description: dict.top.api.function.parameters.input,
-        },
-        {
-          name: 'dividers',
-          description: dict.top.api.function.parameters.dividers,
-        },
-      ],
-    },
-    {
-      id: 'dividerLast',
-      title: 'dividerLast(input, ...dividers)',
-      description: dict.top.api.description.dividerLast,
-      parameters: [
-        {
-          name: 'input',
-          description: dict.top.api.function.parameters.input,
-        },
-        {
-          name: 'dividers',
-          description: dict.top.api.function.parameters.dividers,
-        },
-      ],
-    },
-    {
-      id: 'dividerLoop',
-      title: 'dividerLoop(input, size, options?)',
-      description: dict.top.api.description.dividerLoop,
-      parameters: [
-        {
-          name: 'input',
-          description: dict.top.api.function.parameters.input,
-        },
-        {
-          name: 'size',
-          description: dict.top.api.function.parameters.size,
-        },
-        {
-          name: 'options',
-          description: dict.top.api.function.parameters.options,
-        },
-      ],
-      options: [
-        {
-          name: 'flatten',
-          description: dict.top.api.function.options.flatten,
-        },
-        {
-          name: 'trim',
-          description: dict.top.api.function.options.flatten,
-        },
-      ],
-    },
-    {
-      id: 'dividerNumberString',
-      title: 'dividerNumberString(input, options?)',
-      description: dict.top.api.description.dividerNumberString,
-      parameters: [
-        {
-          name: 'input',
-          description: dict.top.api.function.parameters.input,
-        },
-        {
-          name: 'options',
-          description: dict.top.api.function.parameters.options,
-        },
-      ],
-      options: [
-        {
-          name: 'flatten',
-          description: dict.top.api.function.options.flatten,
-        },
-        {
-          name: 'trim',
-          description: dict.top.api.function.options.flatten,
-        },
-      ],
-    },
-  ];
+  const apiReferences = generateApiReferences(dict.top);
 
   return (
     <main className='container mx-auto px-4 py-12'>
@@ -157,7 +44,7 @@ export default async function DividerDocs({
         </p>
 
         <Link href={`/${lang}/playground`}>
-          <Button variant='outline'>🚀 Playground 🚀</Button>
+          <Button variant='outline'>🚀 {dict.top.button.playground} 🚀</Button>
         </Link>
       </section>
 
