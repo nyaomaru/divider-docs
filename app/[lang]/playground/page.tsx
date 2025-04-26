@@ -4,7 +4,7 @@ import Playground from './Playground';
 export default async function PlaygroundWrapper({
   params,
 }: {
-  params: { lang: Locale };
+  params: Promise<{ lang: Locale }>;
 }) {
   const { lang } = await params;
   const dict = await getDictionary(lang ?? 'en');
