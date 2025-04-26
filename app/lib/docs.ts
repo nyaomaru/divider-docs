@@ -1,13 +1,21 @@
 import type { Command, Usage } from '@/types/lib/docs';
+import {
+  isCommandNpm,
+  isCommandPnpm,
+  isCommandBun,
+  isCommandYarn,
+  isUsageBasic,
+  isUsageAdvanced,
+} from '@/utils/is';
 
 export const installTabs: Command[] = ['npm', 'pnpm', 'bun', 'yarn'];
 export const usageTabs: Usage[] = ['basic', 'advanced'];
 
 export const installCode = (command: Command) => {
-  if (command === 'npm') return `${command} install @nyaomaru/divider`;
-  if (command === 'pnpm') return `${command} install @nyaomaru/divider`;
-  if (command === 'bun') return `${command} add @nyaomaru/divider`;
-  if (command === 'yarn') return `${command} add @nyaomaru/divider`;
+  if (isCommandNpm(command)) return `${command} install @nyaomaru/divider`;
+  if (isCommandPnpm(command)) return `${command} install @nyaomaru/divider`;
+  if (isCommandBun(command)) return `${command} add @nyaomaru/divider`;
+  if (isCommandYarn(command)) return `${command} add @nyaomaru/divider`;
 
   command satisfies never;
 
@@ -15,7 +23,7 @@ export const installCode = (command: Command) => {
 };
 
 export const usageCode = (usage: Usage) => {
-  if (usage === 'basic')
+  if (isUsageBasic(usage))
     return `import { divider } from '@nyaomaru/divider';
 
 // divide a string by index position
@@ -45,7 +53,7 @@ const dividedWordsWithFlattenOption = divider(words, 2, { flatten: true });
 const dividedWithTrimOption = divider([' hello ', ' world '], 2, { trim: true });
 // ['h', 'ello', 'w', 'orld']`;
 
-  if (usage === 'advanced')
+  if (isUsageAdvanced(usage))
     return `// mixed use of indexes and characters
 const complexDivide = divider('hello world', 3, 'o');
 // ['hel', 'l', 'w', 'rld']
