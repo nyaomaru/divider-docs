@@ -59,6 +59,29 @@
           "trim": "Boolean - When true, trims whitespace from each divided segment"
         }
       }
+    },
+    "button": {
+      "playground": "Playground"
+    }
+  },
+  "playground": {
+    "title": "Playground",
+    "description": "Test the library in a live environment.",
+    "string": {
+      "placeholder": "Enter string..."
+    },
+    "array": {
+      "placeholder": "Enter strings, one per line..."
+    },
+    "separator": {
+      "description": "Separators (comma or newline separated)"
+    },
+    "output": {
+      "title": "Output"
+    },
+    "button": {
+      "run": "Run",
+      "back": "← Back"
     }
   }
 }

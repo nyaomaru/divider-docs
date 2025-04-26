@@ -157,7 +157,7 @@ export default async function DividerDocs({
         </p>
 
         <Link href={`/${lang}/playground`}>
-          <Button variant='outline'>🚀 Playground 🚀</Button>
+          <Button variant='outline'>🚀 {dict.top.button.playground} 🚀</Button>
         </Link>
       </section>
 

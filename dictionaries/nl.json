@@ -59,6 +59,29 @@
           "trim": "Boolean - Indien waar, worden witregels uit elk opgedeeld segment verwijderd"
         }
       }
+    },
+    "button": {
+      "playground": "Speelplaats"
+    }
+  },
+  "playground": {
+    "title": "Speelplaats",
+    "description": "Een interactieve omgeving om de functies van de bibliotheek uit te proberen.",
+    "string": {
+      "placeholder": "Voer string in..."
+    },
+    "array": {
+      "placeholder": "Voer strings in, één per regel..."
+    },
+    "separator": {
+      "description": "Scheidingstekens (komma of newline gescheiden)"
+    },
+    "output": {
+      "title": "Uitgang"
+    },
+    "button": {
+      "run": "Ren",
+      "back": "← Terug"
     }
   }
 }
