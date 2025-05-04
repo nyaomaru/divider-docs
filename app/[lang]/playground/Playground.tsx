@@ -23,13 +23,15 @@ export default function PlaygroundPage({ dict }: PlaygroundPageProps) {
   const [inputType, setInputType] = useState<PlaygroundInputType>('string');
   const [input, setInput] = useState<string>('');
   const [separators, setSeparators] = useState<string>('');
-  const [flatten, setFlatten] = useState<boolean>(false);
-  const [trim, setTrim] = useState<boolean>(false);
+  const [options, setOptions] = useState({
+    flatten: false,
+    trim: false,
+    excludeEmpty: false,
+  });
   const [output, setOutput] = useState<unknown>(null);
   const router = useRouter();
 
   const isStringInput = inputType === 'string';
-  const isStringArrayInput = inputType === 'array';
 
   const getParsedInput = (): string | string[] =>
     isStringInput ? input : input.split(/\r?\n/).filter(Boolean);
@@ -41,12 +43,18 @@ export default function PlaygroundPage({ dict }: PlaygroundPageProps) {
       .filter(Boolean)
       .map((s) => (isNaN(Number(s)) ? s : Number(s)));
 
+  const getParsedOptions = () =>
+    isStringInput
+      ? { trim: options.trim, excludeEmpty: options.excludeEmpty }
+      : options;
+
   const handleRun = () => {
     try {
-      const result = divider(getParsedInput(), ...getParsedSeparators(), {
-        flatten,
-        trim,
-      });
+      const result = divider(
+        getParsedInput(),
+        ...getParsedSeparators(),
+        getParsedOptions()
+      );
       setOutput(result);
     } catch (e) {
       setOutput(`Error: ${(e as Error).message}`);
@@ -109,28 +117,28 @@ export default function PlaygroundPage({ dict }: PlaygroundPageProps) {
           {dict.playground.button.run}
         </Button>
 
-        {isStringArrayInput && (
-          <label htmlFor='flatten-option' className='flex items-center gap-2'>
-            <input
-              id='flatten-option'
-              type='checkbox'
-              checked={flatten}
-              onChange={(e) => setFlatten(e.target.checked)}
-              className='accent-white'
-            />
-            Flatten
-          </label>
-        )}
-        <label htmlFor='trim-option' className='flex items-center gap-2'>
-          <input
-            id='trim-option'
-            type='checkbox'
-            checked={trim}
-            onChange={(e) => setTrim(e.target.checked)}
-            className='accent-white'
-          />
-          Trim
-        </label>
+        {(['flatten', 'trim', 'excludeEmpty'] as const).map((key) => {
+          if (key === 'flatten' && isStringInput) return null;
+
+          return (
+            <label
+              key={key}
+              htmlFor={`${key}-option`}
+              className='flex items-center gap-2'
+            >
+              <input
+                id={`${key}-option`}
+                type='checkbox'
+                checked={options[key]}
+                onChange={(e) =>
+                  setOptions((prev) => ({ ...prev, [key]: e.target.checked }))
+                }
+                className='accent-white'
+              />
+              {key}
+            </label>
+          );
+        })}
       </section>
 
       {output !== null && (

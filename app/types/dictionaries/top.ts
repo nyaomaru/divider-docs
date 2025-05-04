@@ -57,6 +57,7 @@ export type TopDictionary = {
           title: string;
           flatten: string;
           trim: string;
+          excludeEmpty: string;
         };
       };
     };
