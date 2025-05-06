@@ -20,7 +20,7 @@ type PlaygroundPageProps = {
 };
 
 export default function PlaygroundPage({ dict }: PlaygroundPageProps) {
-  const [inputType, setInputType] = useState<PlaygroundInputType>('string');
+  const [inputType, setInputType] = useState<PlaygroundInputType>(STRING);
   const [input, setInput] = useState<string>('');
   const [separators, setSeparators] = useState<string>('');
   const [options, setOptions] = useState({
@@ -31,17 +31,19 @@ export default function PlaygroundPage({ dict }: PlaygroundPageProps) {
   const [output, setOutput] = useState<unknown>(null);
   const router = useRouter();
 
-  const isStringInput = inputType === 'string';
+  const isStringInput = inputType === STRING;
 
   const getParsedInput = (): string | string[] =>
     isStringInput ? input : input.split(/\r?\n/).filter(Boolean);
 
   const getParsedSeparators = (): (string | number)[] =>
     separators
-      .split(/\r?\n|,/)
-      .map((s) => s.trim())
-      .filter(Boolean)
-      .map((s) => (isNaN(Number(s)) ? s : Number(s)));
+      .split('\n')
+      .filter((s) => s !== '')
+      .map((s) => {
+        const num = Number(s);
+        return String(num) === s ? num : s;
+      });
 
   const getParsedOptions = () =>
     isStringInput
@@ -50,6 +52,7 @@ export default function PlaygroundPage({ dict }: PlaygroundPageProps) {
 
   const handleRun = () => {
     try {
+      console.log('separators', getParsedSeparators());
       const result = divider(
         getParsedInput(),
         ...getParsedSeparators(),

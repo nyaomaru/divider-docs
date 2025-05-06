@@ -75,7 +75,7 @@
       "placeholder": "Voer strings in, één per regel..."
     },
     "separator": {
-      "description": "Scheidingstekens (komma of newline gescheiden)"
+      "description": "Scheidingstekens (newline gescheiden)"
     },
     "output": {
       "title": "Uitgang"
