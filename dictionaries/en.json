@@ -75,7 +75,7 @@
       "placeholder": "Enter strings, one per line..."
     },
     "separator": {
-      "description": "Separators (comma or newline separated)"
+      "description": "Enter one separator per line.\nExample:\n,\n \n2"
     },
     "output": {
       "title": "Output"
