@@ -53,6 +53,10 @@ export const generateApiReferences = (dict: TopDictionary['top']) => [
         name: 'excludeEmpty',
         description: dict.api.function.options.excludeEmpty,
       },
+      {
+        name: 'startOffset',
+        description: dict.api.function.options.startOffset,
+      },
     ],
   },
   {

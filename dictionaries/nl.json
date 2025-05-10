@@ -57,7 +57,8 @@
           "title": "Opties",
           "flatten": "Boolean - Indien waar, maakt het resultaat plat in een enkele matrix",
           "trim": "Boolean - Indien waar, worden witregels uit elk opgedeeld segment verwijderd",
-          "excludeEmpty": "Boolean - Indien waar, worden lege segmenten uit het resultaat uitgesloten"
+          "excludeEmpty": "Boolean - Indien waar, worden lege segmenten uit het resultaat uitgesloten",
+          "startOffset": "Nummer - Startindex offset bij het splitsen in stukken (alleen voor `dividerLoop`)"
         }
       }
     },

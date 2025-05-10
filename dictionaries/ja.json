@@ -57,7 +57,8 @@
           "title": "オプション",
           "flatten": "Boolean - trueの場合、結果を1つの配列にフラット化します。",
           "trim": "Boolean - trueの場合、結果に含まれる空白をトリムします。",
-          "excludeEmpty": "Boolean - trueの場合、結果から空のセグメントを除外します。"
+          "excludeEmpty": "Boolean - trueの場合、結果から空のセグメントを除外します。",
+          "startOffset": "Number - 分割する際の開始インデックスオフセット（`dividerLoop` のみ）"
         }
       }
     },
