@@ -13,7 +13,7 @@ import {
   dividerNumberString,
 } from '@nyaomaru/divider';
 import type { PlaygroundDictionary } from '@/types/dictionaries';
-import { Select } from '@/ui//components/select';
+import { Select } from '@/ui/components/select';
 
 const STRING = 'string';
 const ARRAY = 'array';
