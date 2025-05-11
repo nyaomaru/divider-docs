@@ -115,19 +115,6 @@ export default function PlaygroundPage({ dict }: PlaygroundPageProps) {
 
       <div className='mb-4'>
         <label className='block mb-2 text-sm font-medium'>Function</label>
-        {/* <select
-          value={functionType}
-          onChange={(e) =>
-            setFunctionType(e.target.value as DividerFunctionType)
-          }
-          className='rounded border px-2 py-1 bg-zinc-900 text-white'
-        >
-          {FUNCTIONS.map((fn) => (
-            <option key={fn} value={fn}>
-              {fn}
-            </option>
-          ))}
-        </select> */}
         <Select
           value={functionType}
           onValueChange={(val) => setFunctionType(val as DividerFunctionType)}
