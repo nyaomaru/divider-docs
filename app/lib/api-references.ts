@@ -57,6 +57,10 @@ export const generateApiReferences = (dict: TopDictionary['top']) => [
         name: 'startOffset',
         description: dict.api.function.options.startOffset,
       },
+      {
+        name: 'maxChunks',
+        description: dict.api.function.options.maxChunks,
+      },
     ],
   },
   {

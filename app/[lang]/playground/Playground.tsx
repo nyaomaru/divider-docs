@@ -13,6 +13,7 @@ import {
   dividerNumberString,
 } from '@nyaomaru/divider';
 import type { PlaygroundDictionary } from '@/types/dictionaries';
+import { Select } from '@/ui//components/select';
 
 const STRING = 'string';
 const ARRAY = 'array';
@@ -47,6 +48,7 @@ export default function PlaygroundPage({ dict }: PlaygroundPageProps) {
   });
   const [size, setSize] = useState<number>(2);
   const [startOffset, setStartOffset] = useState<number>(0);
+  const [maxChunks, setMaxChunks] = useState<number | undefined>(undefined);
   const [output, setOutput] = useState<unknown>(null);
   const router = useRouter();
 
@@ -89,6 +91,7 @@ export default function PlaygroundPage({ dict }: PlaygroundPageProps) {
             return dividerLoop(inputData, size, {
               ...option,
               startOffset,
+              maxChunks,
             });
         }
       };
@@ -111,8 +114,8 @@ export default function PlaygroundPage({ dict }: PlaygroundPageProps) {
       </p>
 
       <div className='mb-4'>
-        <label className='block mb-1 text-sm font-medium'>Function</label>
-        <select
+        <label className='block mb-2 text-sm font-medium'>Function</label>
+        {/* <select
           value={functionType}
           onChange={(e) =>
             setFunctionType(e.target.value as DividerFunctionType)
@@ -124,7 +127,12 @@ export default function PlaygroundPage({ dict }: PlaygroundPageProps) {
               {fn}
             </option>
           ))}
-        </select>
+        </select> */}
+        <Select
+          value={functionType}
+          onValueChange={(val) => setFunctionType(val as DividerFunctionType)}
+          options={FUNCTIONS}
+        />
       </div>
 
       <Tabs
@@ -189,6 +197,19 @@ export default function PlaygroundPage({ dict }: PlaygroundPageProps) {
               value={startOffset}
               onChange={(e) => setStartOffset(Number(e.target.value))}
               className='ml-2 w-20 p-1 rounded border bg-zinc-900 text-white'
+            />
+          </label>
+          <label>
+            Max Chunks
+            <input
+              type='number'
+              value={maxChunks ?? ''}
+              onChange={(e) => {
+                const value = e.target.value;
+                setMaxChunks(value === '' ? undefined : Number(value));
+              }}
+              className='ml-2 w-24 p-1 rounded border bg-zinc-900 text-white'
+              placeholder='e.g. 3'
             />
           </label>
         </div>
