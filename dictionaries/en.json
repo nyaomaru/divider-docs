@@ -58,7 +58,8 @@
           "flatten": "Boolean - When true, flattens the result into a single array",
           "trim": "Boolean - When true, trims whitespace from each divided segment",
           "excludeEmpty": "Boolean - When true, excludes empty segments from the result",
-          "startOffset": "Number - Starting index offset when dividing into chunks (only for `dividerLoop`)"
+          "startOffset": "Number - Starting index offset when dividing into chunks (only for `dividerLoop`)",
+          "maxChunks": "Number - Maximum number of chunks allowed. Extra chunks are joined into the last chunk"
         }
       }
     },

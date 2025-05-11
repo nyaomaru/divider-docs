@@ -59,6 +59,7 @@ export type TopDictionary = {
           trim: string;
           excludeEmpty: string;
           startOffset: string;
+          maxChunks: string;
         };
       };
     };
