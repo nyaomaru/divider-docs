@@ -14,8 +14,8 @@ export const generateApiReferences = (dict: TopDictionary['top']) => [
       { name: 'flatten', description: dict.api.function.options.flatten },
       { name: 'trim', description: dict.api.function.options.trim },
       {
-        name: 'excludeEmpty',
-        description: dict.api.function.options.excludeEmpty,
+        name: 'exclude',
+        description: dict.api.function.options.exclude,
       },
     ],
   },
@@ -50,8 +50,8 @@ export const generateApiReferences = (dict: TopDictionary['top']) => [
       { name: 'flatten', description: dict.api.function.options.flatten },
       { name: 'trim', description: dict.api.function.options.trim },
       {
-        name: 'excludeEmpty',
-        description: dict.api.function.options.excludeEmpty,
+        name: 'exclude',
+        description: dict.api.function.options.exclude,
       },
       {
         name: 'startOffset',
@@ -75,8 +75,8 @@ export const generateApiReferences = (dict: TopDictionary['top']) => [
       { name: 'flatten', description: dict.api.function.options.flatten },
       { name: 'trim', description: dict.api.function.options.trim },
       {
-        name: 'excludeEmpty',
-        description: dict.api.function.options.excludeEmpty,
+        name: 'exclude',
+        description: dict.api.function.options.exclude,
       },
     ],
   },

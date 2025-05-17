@@ -41,10 +41,14 @@ export default function PlaygroundPage({ dict }: PlaygroundPageProps) {
   const [inputType, setInputType] = useState<PlaygroundInputType>(STRING);
   const [input, setInput] = useState<string>('');
   const [separators, setSeparators] = useState<string>('');
-  const [options, setOptions] = useState({
+  const [options, setOptions] = useState<{
+    flatten: boolean;
+    trim: boolean;
+    exclude: 'none' | 'empty' | 'whitespace';
+  }>({
     flatten: false,
     trim: false,
-    excludeEmpty: false,
+    exclude: 'none',
   });
   const [size, setSize] = useState<number>(2);
   const [startOffset, setStartOffset] = useState<number>(0);
@@ -67,9 +71,7 @@ export default function PlaygroundPage({ dict }: PlaygroundPageProps) {
       });
 
   const getParsedOptions = () =>
-    isStringInput
-      ? { trim: options.trim, excludeEmpty: options.excludeEmpty }
-      : options;
+    isStringInput ? { trim: options.trim, exclude: options.exclude } : options;
 
   const handleRun = () => {
     try {
@@ -95,6 +97,8 @@ export default function PlaygroundPage({ dict }: PlaygroundPageProps) {
             });
         }
       };
+
+      console.log('option', option);
 
       setOutput(result);
     } catch (e) {
@@ -207,7 +211,7 @@ export default function PlaygroundPage({ dict }: PlaygroundPageProps) {
           {dict.playground.button.run}
         </Button>
 
-        {(['flatten', 'trim', 'excludeEmpty'] as const).map((key) => {
+        {(['flatten', 'trim'] as const).map((key) => {
           if (key === 'flatten' && isStringInput) return null;
 
           return (
@@ -229,6 +233,15 @@ export default function PlaygroundPage({ dict }: PlaygroundPageProps) {
             </label>
           );
         })}
+        <div className='flex flex-col gap-2'>
+          <Select
+            value={options.exclude}
+            onValueChange={(val) =>
+              setOptions((prev) => ({ ...prev, exclude: val }))
+            }
+            options={['none', 'empty', 'whitespace'] as const}
+          />
+        </div>
       </section>
 
       {output !== null && (
