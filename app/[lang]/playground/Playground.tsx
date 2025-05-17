@@ -98,8 +98,6 @@ export default function PlaygroundPage({ dict }: PlaygroundPageProps) {
         }
       };
 
-      console.log('option', option);
-
       setOutput(result);
     } catch (e) {
       setOutput(`Error: ${(e as Error).message}`);
