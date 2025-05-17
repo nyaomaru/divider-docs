@@ -57,7 +57,7 @@
           "title": "オプション",
           "flatten": "Boolean - trueの場合、結果を1つの配列にフラット化します。",
           "trim": "Boolean - trueの場合、結果に含まれる空白をトリムします。",
-          "excludeEmpty": "Boolean - trueの場合、結果から空のセグメントを除外します。",
+          "exclude": "`'none' | 'empty' | 'whitespace'` - 結果から空のセグメントや空白を除外する方法を指定します。",
           "startOffset": "Number - 分割する際の開始インデックスオフセット（`dividerLoop` のみ）",
           "maxChunks": "Number - 許可される最大チャンク数。余分なチャンクは最後のチャンクに結合されます。"
         }
