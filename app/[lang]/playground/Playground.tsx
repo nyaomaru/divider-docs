@@ -14,6 +14,7 @@ import {
 } from '@nyaomaru/divider';
 import type { PlaygroundDictionary } from '@/types/dictionaries';
 import { Select } from '@/ui/components/select';
+import { LabeledNumberInput } from '@/ui/components/labeled-number-input';
 
 const STRING = 'string';
 const ARRAY = 'array';
@@ -170,37 +171,26 @@ export default function PlaygroundPage({ dict }: PlaygroundPageProps) {
 
       {functionType === 'dividerLoop' && (
         <div className='flex gap-4 mb-6'>
-          <label>
-            Chunk Size
-            <input
-              type='number'
-              value={size}
-              onChange={(e) => setSize(Number(e.target.value))}
-              className='ml-2 w-20 p-1 rounded border bg-zinc-900 text-white'
-            />
-          </label>
-          <label>
-            Start Offset
-            <input
-              type='number'
-              value={startOffset}
-              onChange={(e) => setStartOffset(Number(e.target.value))}
-              className='ml-2 w-20 p-1 rounded border bg-zinc-900 text-white'
-            />
-          </label>
-          <label>
-            Max Chunks
-            <input
-              type='number'
-              value={maxChunks ?? ''}
-              onChange={(e) => {
-                const value = e.target.value;
-                setMaxChunks(value === '' ? undefined : Number(value));
-              }}
-              className='ml-2 w-24 p-1 rounded border bg-zinc-900 text-white'
-              placeholder='e.g. 3'
-            />
-          </label>
+          <LabeledNumberInput
+            id='chunk-size'
+            label='Chunk Size'
+            value={size}
+            onChange={(val: number) => setSize(val ?? 0)}
+          />
+          <LabeledNumberInput
+            id='start-offset'
+            label='Start Offset'
+            value={startOffset}
+            onChange={(val: number) => setStartOffset(val ?? 0)}
+          />
+          <LabeledNumberInput
+            id='max-chunks'
+            label='Max Chunks'
+            value={maxChunks}
+            onChange={setMaxChunks}
+            placeholder='e.g. 3'
+            widthClass='w-24'
+          />
         </div>
       )}
 
