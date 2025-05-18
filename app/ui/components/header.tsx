@@ -1,10 +1,17 @@
-import { Github, Download } from 'lucide-react';
+'use client';
+
+import { Github, Download, Rocket } from 'lucide-react';
+
+import { usePathname } from 'next/navigation';
 
 import { LogoLink } from '@/ui/components/logo-link';
 import { Button } from '@/ui/components/button';
 import { LanguageSwitcher } from '@/ui/components/language-switcher';
 
 export function Header() {
+  const pathname = usePathname();
+  const currentLang = pathname?.split('/')[1] || 'en';
+
   return (
     <header className='sticky top-0 z-10 border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-sm'>
       <div className='container mx-auto flex h-16 items-center justify-between'>
@@ -15,6 +22,15 @@ export function Header() {
           </span>
         </div>
         <div className='flex items-center gap-4'>
+          <Button variant='outline' size='sm' asChild>
+            <a
+              href={`/${currentLang}/playground`}
+              aria-label='Go to playground page'
+            >
+              <Rocket className='mr-2 h-4 w-4' />
+              playground
+            </a>
+          </Button>
           <Button variant='outline' size='sm' asChild>
             <a
               href='https://www.npmjs.com/package/@nyaomaru/divider'
