@@ -10,7 +10,7 @@ import { LanguageSwitcher } from '@/ui/components/language-switcher';
 
 export function Header() {
   const pathname = usePathname();
-  const currentLang = pathname.split('/')[1];
+  const currentLang = pathname?.split('/')[1] || 'en';
 
   return (
     <header className='sticky top-0 z-10 border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-sm'>

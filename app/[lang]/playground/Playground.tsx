@@ -175,13 +175,13 @@ export default function PlaygroundPage({ dict }: PlaygroundPageProps) {
             id='chunk-size'
             label='Chunk Size'
             value={size}
-            onChange={(val: number) => setSize(val ?? 0)}
+            onChange={(val: number | undefined) => setSize(val ?? 0)}
           />
           <LabeledNumberInput
             id='start-offset'
             label='Start Offset'
             value={startOffset}
-            onChange={(val: number) => setStartOffset(val ?? 0)}
+            onChange={(val: number | undefined) => setStartOffset(val ?? 0)}
           />
           <LabeledNumberInput
             id='max-chunks'
