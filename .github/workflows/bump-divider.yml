@@ -1,0 +1,59 @@
+name: Bump divider version
+
+on:
+  schedule:
+    - cron: '0 4 * * *'
+  workflow_dispatch:
+
+jobs:
+  bump:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Get latest version from npm
+        id: latest
+        run: |
+          echo "version=$(npm show @nyaomaru/divider version)" >> $GITHUB_OUTPUT
+
+      - name: Get current version from package.json
+        id: current
+        run: |
+          current=$(jq -r '.dependencies["@nyaomaru/divider"]' package.json | sed 's/[^0-9.]//g')
+          echo "version=$current" >> $GITHUB_OUTPUT
+
+      - name: Compare versions
+        id: compare
+        run: |
+          if [ "${{ steps.latest.outputs.version }}" != "${{ steps.current.outputs.version }}" ]; then
+            echo "should_update=true" >> $GITHUB_OUTPUT
+          else
+            echo "should_update=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Update package.json
+        if: steps.compare.outputs.should_update == 'true'
+        run: |
+          jq '.dependencies["@nyaomaru/divider"] = "^${{ steps.latest.outputs.version }}"' package.json > tmp && mv tmp package.json
+
+      - name: Install dependencies (optional)
+        if: steps.compare.outputs.should_update == 'true'
+        run: npm install
+
+      - name: Create PR
+        if: steps.compare.outputs.should_update == 'true'
+        uses: peter-evans/create-pull-request@v5
+        with:
+          commit-message: 'chore: bump @nyaomaru/divider to ^${{ steps.latest.outputs.version }}'
+          branch: chore/bump-divider-${{ steps.latest.outputs.version }}
+          title: 'chore: bump @nyaomaru/divider to ^${{ steps.latest.outputs.version }}'
+          body: |
+            This PR updates @nyaomaru/divider to ^${{ steps.latest.outputs.version }}.
+          labels: dependencies
