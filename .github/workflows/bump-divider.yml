@@ -51,7 +51,7 @@ jobs:
 
       - name: Install dependencies (optional)
         if: steps.compare.outputs.should_update == 'true'
-        run: pnpm install
+        run: pnpm install --no-frozen-lockfile
 
       - name: Create PR
         if: steps.compare.outputs.should_update == 'true'
