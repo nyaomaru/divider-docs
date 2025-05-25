@@ -16,7 +16,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: '22'
 
       - name: Get latest version from npm
         id: latest
@@ -45,7 +45,7 @@ jobs:
 
       - name: Install dependencies (optional)
         if: steps.compare.outputs.should_update == 'true'
-        run: npm install
+        run: pnpm install
 
       - name: Create PR
         if: steps.compare.outputs.should_update == 'true'
