@@ -61,7 +61,8 @@
           "startOffset": "Number - Starting index offset when dividing into chunks (only for `dividerLoop`)",
           "maxChunks": "Number - Maximum number of chunks allowed. Extra chunks are joined into the last chunk"
         }
-      }
+      },
+      "fullReferenceLinkText": "View full API documentation on GitHub Pages"
     },
     "button": {
       "playground": "Playground"

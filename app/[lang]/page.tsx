@@ -185,6 +185,17 @@ export default async function DividerDocs({
             />
           </div>
         ))}
+
+        <div className='text-center mt-8'>
+          <Link
+            href='https://nyaomaru.github.io/divider/'
+            target='_blank'
+            rel='noopener noreferrer'
+            className='text-blue-500 underline hover:text-blue-400'
+          >
+            📘 {dict.top.api.fullReferenceLinkText}
+          </Link>
+        </div>
       </section>
     </main>
   );

@@ -61,7 +61,8 @@
           "startOffset": "Number - 分割する際の開始インデックスオフセット（`dividerLoop` のみ）",
           "maxChunks": "Number - 許可される最大チャンク数。余分なチャンクは最後のチャンクに結合されます。"
         }
-      }
+      },
+      "fullReferenceLinkText": "より詳細な API ドキュメントを見る"
     },
     "button": {
       "playground": "遊び場"
