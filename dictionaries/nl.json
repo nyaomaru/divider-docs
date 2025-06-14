@@ -61,7 +61,8 @@
           "startOffset": "Nummer - Startindex offset bij het splitsen in stukken (alleen voor `dividerLoop`)",
           "maxChunks": "Nummer - Maximale aantal toegestane stukken. Extra stukken worden samengevoegd in het laatste stuk"
         }
-      }
+      },
+      "fullReferenceLinkText": "Volledige API-documentatie bekijken op GitHub Pages"
     },
     "button": {
       "playground": "Speelplaats"

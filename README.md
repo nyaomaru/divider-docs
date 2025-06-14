@@ -7,3 +7,5 @@
 Documentation page for [divider](https://github.com/nyaomaru/divider) library.
 
 Page link: [Divider docs](https://divider-docs.vercel.app/)
+
+🧪 API Reference: [https://nyaomaru.github.io/divider/](https://nyaomaru.github.io/divider/)
