@@ -20,13 +20,32 @@ import { LabeledNumberInput } from '@/ui/components/labeled-number-input';
 const STRING = 'string';
 const ARRAY = 'array';
 
+const DIVIDER = {
+  DIVIDER: 'divider',
+  DIVIDER_LOOP: 'dividerLoop',
+  DIVIDER_FIRST: 'dividerFirst',
+  DIVIDER_LAST: 'dividerLast',
+  DIVIDER_NUMBER_STRING: 'dividerNumberString',
+} as const;
+
 const FUNCTIONS = [
-  'divider',
-  'dividerLoop',
-  'dividerFirst',
-  'dividerLast',
-  'dividerNumberString',
+  DIVIDER.DIVIDER,
+  DIVIDER.DIVIDER_LOOP,
+  DIVIDER.DIVIDER_FIRST,
+  DIVIDER.DIVIDER_LAST,
+  DIVIDER.DIVIDER_NUMBER_STRING,
 ] as const;
+
+const OPTIONS = {
+  FLATTEN: 'flatten',
+  TRIM: 'trim',
+  EXCLUDE: 'none',
+} as const;
+const EXCLUDE_OPTION = {
+  NONE: 'none',
+  EMPTY: 'empty',
+  WHITESPACE: 'whitespace',
+} as const;
 
 type PlaygroundInputType = typeof STRING | typeof ARRAY;
 type DividerFunctionType = (typeof FUNCTIONS)[number];
@@ -38,15 +57,16 @@ type PlaygroundPageProps = {
 };
 
 export default function PlaygroundPage({ dict }: PlaygroundPageProps) {
-  const [functionType, setFunctionType] =
-    useState<DividerFunctionType>('divider');
+  const [functionType, setFunctionType] = useState<DividerFunctionType>(
+    DIVIDER.DIVIDER
+  );
   const [inputType, setInputType] = useState<PlaygroundInputType>(STRING);
   const [input, setInput] = useState<string>('');
   const [separators, setSeparators] = useState<string>('');
   const [options, setOptions] = useState<DividerOptions>({
     flatten: false,
     trim: false,
-    exclude: 'none',
+    exclude: EXCLUDE_OPTION.NONE,
   });
   const [size, setSize] = useState<number>(2);
   const [startOffset, setStartOffset] = useState<number>(0);
@@ -62,10 +82,10 @@ export default function PlaygroundPage({ dict }: PlaygroundPageProps) {
   const getParsedSeparators = (): (string | number)[] =>
     separators
       .split('\n')
-      .filter((s) => s !== '')
-      .map((s) => {
-        const num = Number(s);
-        return String(num) === s ? num : s;
+      .filter((separator) => separator !== '')
+      .map((separator) => {
+        const num = Number(separator);
+        return String(num) === separator ? num : separator;
       });
 
   const getParsedOptions = () =>
@@ -79,15 +99,15 @@ export default function PlaygroundPage({ dict }: PlaygroundPageProps) {
 
       const result = () => {
         switch (functionType) {
-          case 'divider':
+          case DIVIDER.DIVIDER:
             return divider(inputData, ...separatorData, option);
-          case 'dividerFirst':
+          case DIVIDER.DIVIDER_FIRST:
             return dividerFirst(inputData, ...separatorData);
-          case 'dividerLast':
+          case DIVIDER.DIVIDER_LAST:
             return dividerLast(inputData, ...separatorData);
-          case 'dividerNumberString':
+          case DIVIDER.DIVIDER_NUMBER_STRING:
             return dividerNumberString(inputData, option);
-          case 'dividerLoop':
+          case DIVIDER.DIVIDER_LOOP:
             return dividerLoop(inputData, size, {
               ...option,
               startOffset,
@@ -151,9 +171,9 @@ export default function PlaygroundPage({ dict }: PlaygroundPageProps) {
         </TabsContent>
       </Tabs>
 
-      {functionType === 'divider' ||
-      functionType === 'dividerFirst' ||
-      functionType === 'dividerLast' ? (
+      {functionType === DIVIDER.DIVIDER ||
+      functionType === DIVIDER.DIVIDER_FIRST ||
+      functionType === DIVIDER.DIVIDER_LAST ? (
         <div className='mb-6'>
           <label className='block text-sm font-medium mb-2'>
             {dict.playground.separator.description}
@@ -166,7 +186,7 @@ export default function PlaygroundPage({ dict }: PlaygroundPageProps) {
         </div>
       ) : null}
 
-      {functionType === 'dividerLoop' && (
+      {functionType === DIVIDER.DIVIDER_LOOP && (
         <div className='flex gap-4 mb-6'>
           <LabeledNumberInput
             id='chunk-size'
@@ -196,8 +216,8 @@ export default function PlaygroundPage({ dict }: PlaygroundPageProps) {
           {dict.playground.button.run}
         </Button>
 
-        {(['flatten', 'trim'] as const).map((key) => {
-          if (key === 'flatten' && isStringInput) return null;
+        {([OPTIONS.FLATTEN, OPTIONS.TRIM] as const).map((key) => {
+          if (key === OPTIONS.FLATTEN && isStringInput) return null;
 
           return (
             <label
@@ -224,7 +244,13 @@ export default function PlaygroundPage({ dict }: PlaygroundPageProps) {
             onValueChange={(val) =>
               setOptions((prev) => ({ ...prev, exclude: val }))
             }
-            options={['none', 'empty', 'whitespace'] as const}
+            options={
+              [
+                EXCLUDE_OPTION.NONE,
+                EXCLUDE_OPTION.EMPTY,
+                EXCLUDE_OPTION.WHITESPACE,
+              ] as const
+            }
           />
         </div>
       </section>
