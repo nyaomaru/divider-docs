@@ -6,6 +6,9 @@ import {
   dividerFirst,
   dividerLast,
   dividerNumberString,
+  csvDivider,
+  emailDivider,
+  pathDivider,
   type DividerOptions,
 } from '@nyaomaru/divider';
 import { useRouter } from 'next/navigation';
@@ -26,6 +29,9 @@ const DIVIDER = {
   DIVIDER_FIRST: 'dividerFirst',
   DIVIDER_LAST: 'dividerLast',
   DIVIDER_NUMBER_STRING: 'dividerNumberString',
+  CSV_DIVIDER: 'csvDivider',
+  EMAIL_DIVIDER: 'emailDivider',
+  PATH_DIVIDER: 'pathDivider',
 } as const;
 
 const FUNCTIONS = [
@@ -34,6 +40,9 @@ const FUNCTIONS = [
   DIVIDER.DIVIDER_FIRST,
   DIVIDER.DIVIDER_LAST,
   DIVIDER.DIVIDER_NUMBER_STRING,
+  DIVIDER.CSV_DIVIDER,
+  DIVIDER.EMAIL_DIVIDER,
+  DIVIDER.PATH_DIVIDER,
 ] as const;
 
 const OPTIONS = {
@@ -74,6 +83,16 @@ export default function PlaygroundPage({ dict }: PlaygroundPageProps) {
   const [output, setOutput] = useState<unknown>(null);
   const router = useRouter();
 
+  const [csvDelimiter, setCsvDelimiter] = useState<string>(',');
+  const [csvQuote, setCsvQuote] = useState<string>('"');
+  const [emailSplitTLD, setEmailSplitTLD] = useState<boolean>(false);
+  const [pathCollapse, setPathCollapse] = useState<boolean>(true);
+
+  const isPreset =
+    functionType === DIVIDER.CSV_DIVIDER ||
+    functionType === DIVIDER.EMAIL_DIVIDER ||
+    functionType === DIVIDER.PATH_DIVIDER;
+
   const isStringInput = inputType === STRING;
 
   const getParsedInput = (): string | string[] =>
@@ -113,6 +132,22 @@ export default function PlaygroundPage({ dict }: PlaygroundPageProps) {
               startOffset,
               maxChunks,
             });
+          case DIVIDER.CSV_DIVIDER:
+            return csvDivider(String(input), {
+              delimiter: csvDelimiter || ',',
+              quoteChar: csvQuote || '"',
+              trim: options.trim,
+            });
+          case DIVIDER.EMAIL_DIVIDER:
+            return emailDivider(String(input), {
+              trim: options.trim,
+              splitTLD: emailSplitTLD,
+            });
+          case DIVIDER.PATH_DIVIDER:
+            return pathDivider(String(input), {
+              trim: options.trim,
+              collapse: pathCollapse,
+            });
         }
       };
 
@@ -142,38 +177,57 @@ export default function PlaygroundPage({ dict }: PlaygroundPageProps) {
         />
       </div>
 
-      <Tabs
-        defaultValue={STRING}
-        onValueChange={(val: PlaygroundInputType) => setInputType(val)}
-        className='mb-6'
-      >
-        <TabsList className='mb-4'>
-          <TabsTrigger value={STRING}>string</TabsTrigger>
-          <TabsTrigger value={ARRAY}>string[]</TabsTrigger>
-        </TabsList>
+      {!isPreset ? (
+        <Tabs
+          defaultValue={STRING}
+          onValueChange={(val: PlaygroundInputType) => setInputType(val)}
+          className='mb-6'
+        >
+          <TabsList className='mb-4'>
+            <TabsTrigger value={STRING}>string</TabsTrigger>
+            <TabsTrigger value={ARRAY}>string[]</TabsTrigger>
+          </TabsList>
 
-        <TabsContent value={STRING}>
+          <TabsContent value={STRING}>
+            <input
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              className='w-full h-8 p-2 rounded border bg-zinc-900 text-white'
+              placeholder={dict.playground.string.placeholder}
+            />
+          </TabsContent>
+
+          <TabsContent value={ARRAY}>
+            <textarea
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              className='w-full h-24 p-2 rounded border bg-zinc-900 text-white'
+              placeholder={dict.playground.array.placeholder}
+            />
+          </TabsContent>
+        </Tabs>
+      ) : (
+        <div className='mb-6'>
+          <label className='block mb-2 text-sm font-medium'>Input</label>
           <input
             value={input}
             onChange={(e) => setInput(e.target.value)}
             className='w-full h-8 p-2 rounded border bg-zinc-900 text-white'
-            placeholder={dict.playground.string.placeholder}
+            placeholder={
+              functionType === 'csvDivider'
+                ? '"a, ""quoted""",b'
+                : functionType === 'emailDivider'
+                ? 'user@example.com'
+                : '/usr/local/bin'
+            }
           />
-        </TabsContent>
+        </div>
+      )}
 
-        <TabsContent value={ARRAY}>
-          <textarea
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            className='w-full h-24 p-2 rounded border bg-zinc-900 text-white'
-            placeholder={dict.playground.array.placeholder}
-          />
-        </TabsContent>
-      </Tabs>
-
-      {functionType === DIVIDER.DIVIDER ||
-      functionType === DIVIDER.DIVIDER_FIRST ||
-      functionType === DIVIDER.DIVIDER_LAST ? (
+      {!isPreset &&
+      (functionType === DIVIDER.DIVIDER ||
+        functionType === DIVIDER.DIVIDER_FIRST ||
+        functionType === DIVIDER.DIVIDER_LAST) ? (
         <div className='mb-6'>
           <label className='block text-sm font-medium mb-2'>
             {dict.playground.separator.description}
@@ -238,21 +292,70 @@ export default function PlaygroundPage({ dict }: PlaygroundPageProps) {
             </label>
           );
         })}
-        <div className='flex flex-col gap-2'>
-          <Select
-            value={options.exclude}
-            onValueChange={(val) =>
-              setOptions((prev) => ({ ...prev, exclude: val }))
-            }
-            options={
-              [
-                EXCLUDE_OPTION.NONE,
-                EXCLUDE_OPTION.EMPTY,
-                EXCLUDE_OPTION.WHITESPACE,
-              ] as const
-            }
-          />
-        </div>
+        {!isPreset && (
+          <div className='flex flex-col gap-2'>
+            <Select
+              value={options.exclude}
+              onValueChange={(val) =>
+                setOptions((prev) => ({ ...prev, exclude: val }))
+              }
+              options={
+                [
+                  EXCLUDE_OPTION.NONE,
+                  EXCLUDE_OPTION.EMPTY,
+                  EXCLUDE_OPTION.WHITESPACE,
+                ] as const
+              }
+            />
+          </div>
+        )}
+
+        {functionType === DIVIDER.CSV_DIVIDER && (
+          <div className='flex items-center gap-4 flex-wrap'>
+            <label className='flex items-center gap-2'>
+              <span className='text-sm'>delimiter</span>
+              <input
+                className='w-16 rounded border bg-zinc-900 text-white px-2 py-1 font-mono'
+                maxLength={1}
+                value={csvDelimiter}
+                onChange={(e) => setCsvDelimiter(e.target.value)}
+              />
+            </label>
+            <label className='flex items-center gap-2'>
+              <span className='text-sm'>quoteChar</span>
+              <input
+                className='w-16 rounded border bg-zinc-900 text-white px-2 py-1 font-mono'
+                maxLength={1}
+                value={csvQuote}
+                onChange={(e) => setCsvQuote(e.target.value)}
+              />
+            </label>
+          </div>
+        )}
+
+        {functionType === DIVIDER.EMAIL_DIVIDER && (
+          <label className='flex items-center gap-2'>
+            <input
+              type='checkbox'
+              checked={emailSplitTLD}
+              onChange={(e) => setEmailSplitTLD(e.target.checked)}
+              className='accent-white'
+            />
+            <span>splitTLD</span>
+          </label>
+        )}
+
+        {functionType === DIVIDER.PATH_DIVIDER && (
+          <label className='flex items-center gap-2'>
+            <input
+              type='checkbox'
+              checked={pathCollapse}
+              onChange={(e) => setPathCollapse(e.target.checked)}
+              className='accent-white'
+            />
+            <span>collapse</span>
+          </label>
+        )}
       </section>
 
       {output !== null && (
