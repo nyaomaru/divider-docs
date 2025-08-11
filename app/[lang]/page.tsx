@@ -7,6 +7,7 @@ import { APIReferenceCard } from '@/ui/divider-docs/api-reference-card';
 import { installTabs, installCode, usageTabs, usageCode } from '@/lib/docs';
 import { getDictionary, type Locale } from '@/lib/dictionaries';
 import { generateApiReferences } from '@/lib/api-references';
+import { generatePresets } from '@/lib/presets';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -23,6 +24,7 @@ export default async function DividerDocs({
   const dict = await getDictionary(lang ?? 'en');
 
   const apiReferences = generateApiReferences(dict.top);
+  const presets = generatePresets(dict.top);
 
   return (
     <main className='container mx-auto px-4 py-12'>
@@ -194,6 +196,35 @@ export default async function DividerDocs({
             className='text-blue-500 underline hover:text-blue-400'
           >
             📘 {dict.top.api.fullReferenceLinkText}
+          </Link>
+        </div>
+      </section>
+
+      <section id='presets' aria-labelledby='presets-title' className='mb-16'>
+        <h2 id='presets-title' className='text-3xl font-bold mb-6'>
+          {dict.top.presets?.title}
+        </h2>
+
+        <p className='text-zinc-400 mb-6'>{dict.top.presets?.description}</p>
+
+        <div className='grid gap-6 md:grid-cols-2 lg:grid-cols-3'>
+          {presets.map(({ id, title, description }) => (
+            <FeatureCard
+              key={id}
+              id={id}
+              title={title}
+              aria-labelledby={id}
+              description={description}
+            />
+          ))}
+        </div>
+
+        <div className='text-center mt-8'>
+          <Link
+            href={`/${lang}/playground`}
+            className='text-blue-500 underline hover:text-blue-400'
+          >
+            🧪 Try these in the Playground
           </Link>
         </div>
       </section>

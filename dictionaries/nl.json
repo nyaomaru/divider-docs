@@ -66,6 +66,23 @@
     },
     "button": {
       "playground": "Speelplaats"
+    },
+    "presets": {
+      "title": "Voorinstellingen",
+      "description": "Veelvoorkomende splitsers uit de echte wereld die zijn gebouwd bovenop `divider`.",
+      "email": {
+        "title": "emailDivider()",
+        "description": "Verdeel een e-mailadres in lokale en domeindelen, met optionele TLD-splitsing.",
+        "example": ""
+      },
+      "csv": {
+        "title": "csvDivider()",
+        "description": "CSV-compatibele splitsing met ondersteuning voor geciteerde velden, aangepaste scheidingstekens/citaten en trimming."
+      },
+      "path": {
+        "title": "pathDivider()",
+        "description": "Verdeel bestands paden door `/` of `|`, met opties om lege segmenten te trimmen of te behouden."
+      }
     }
   },
   "playground": {
