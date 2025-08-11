@@ -1,17 +1,18 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
-import { useState } from 'react';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/ui/components/tabs';
-import { Button } from '@/ui/components/button';
-import { Breadcrumbs } from '@/ui/components/breadcrumbs';
 import {
   divider,
   dividerLoop,
   dividerFirst,
   dividerLast,
   dividerNumberString,
+  type DividerOptions,
 } from '@nyaomaru/divider';
+import { useRouter } from 'next/navigation';
+import { useState } from 'react';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/ui/components/tabs';
+import { Button } from '@/ui/components/button';
+import { Breadcrumbs } from '@/ui/components/breadcrumbs';
 import type { PlaygroundDictionary } from '@/types/dictionaries';
 import { Select } from '@/ui/components/select';
 import { LabeledNumberInput } from '@/ui/components/labeled-number-input';
@@ -42,11 +43,7 @@ export default function PlaygroundPage({ dict }: PlaygroundPageProps) {
   const [inputType, setInputType] = useState<PlaygroundInputType>(STRING);
   const [input, setInput] = useState<string>('');
   const [separators, setSeparators] = useState<string>('');
-  const [options, setOptions] = useState<{
-    flatten: boolean;
-    trim: boolean;
-    exclude: 'none' | 'empty' | 'whitespace';
-  }>({
+  const [options, setOptions] = useState<DividerOptions>({
     flatten: false,
     trim: false,
     exclude: 'none',
