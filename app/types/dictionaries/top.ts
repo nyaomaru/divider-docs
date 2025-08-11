@@ -66,5 +66,21 @@ export type TopDictionary = {
     button: {
       playground: string;
     };
+    presets: {
+      title: string;
+      description: string;
+      email: {
+        title: string;
+        description: string;
+      };
+      csv: {
+        title: string;
+        description: string;
+      };
+      path: {
+        title: string;
+        description: string;
+      };
+    };
   };
 };

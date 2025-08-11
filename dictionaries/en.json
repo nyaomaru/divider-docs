@@ -66,6 +66,23 @@
     },
     "button": {
       "playground": "Playground"
+    },
+    "presets": {
+      "title": "Presets",
+      "description": "Common real-world splitters built on top of `divider`.",
+      "email": {
+        "title": "emailDivider()",
+        "description": "Divide an email into local and domain parts, with optional TLD split.",
+        "example": ""
+      },
+      "csv": {
+        "title": "csvDivider()",
+        "description": "CSV-aware divide with quoted field support, custom delimiter/quote, and trimming."
+      },
+      "path": {
+        "title": "pathDivider()",
+        "description": "Divide file paths by `/` or `|`, with options to trim or keep empty segments."
+      }
     }
   },
   "playground": {

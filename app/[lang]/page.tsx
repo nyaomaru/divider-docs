@@ -197,6 +197,49 @@ export default async function DividerDocs({
           </Link>
         </div>
       </section>
+
+      <section id='presets' aria-labelledby='presets-title' className='mb-16'>
+        <h2 id='presets-title' className='text-3xl font-bold mb-6'>
+          {dict.top.presets?.title}
+        </h2>
+
+        <p className='text-zinc-400 mb-6'>{dict.top.presets?.description}</p>
+
+        <div className='grid gap-6 md:grid-cols-2 lg:grid-cols-3'>
+          {/* emailDivider */}
+          <FeatureCard
+            id='preset-email'
+            title={dict.top.presets?.email?.title}
+            aria-labelledby='preset-email'
+            description={dict.top.presets?.email?.description}
+          />
+
+          {/* csvDivider */}
+          <FeatureCard
+            id='preset-csv'
+            title={dict.top.presets?.csv?.title}
+            aria-labelledby='preset-csv'
+            description={dict.top.presets?.csv?.description}
+          />
+
+          {/* pathDivider */}
+          <FeatureCard
+            id='preset-path'
+            title={dict.top.presets?.path?.title}
+            aria-labelledby='preset-path'
+            description={dict.top.presets?.path?.description}
+          />
+        </div>
+
+        <div className='text-center mt-8'>
+          <Link
+            href={`/${lang}/playground`}
+            className='text-blue-500 underline hover:text-blue-400'
+          >
+            🧪 Try these in the Playground
+          </Link>
+        </div>
+      </section>
     </main>
   );
 }

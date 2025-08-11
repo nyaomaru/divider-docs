@@ -66,6 +66,22 @@
     },
     "button": {
       "playground": "遊び場"
+    },
+    "presets": {
+      "title": "プリセット",
+      "description": "Divider の上に構築された一般的な実務で利用する想定のプリセットです。",
+      "email": {
+        "title": "emailDivider()",
+        "description": "メールアドレスをローカル部分とドメイン部分に分割し、オプションで TLD 分割を行います。"
+      },
+      "csv": {
+        "title": "csvDivider()",
+        "description": "引用符付きフィールドサポート、カスタム区切り文字/引用符、およびトリミング機能を備えたCSV対応の分割処理です。"
+      },
+      "path": {
+        "title": "pathDivider()",
+        "description": "ファイルパスを `/` または `|` で分割し、空のセグメントをトリムまたは保持するオプションがあります。"
+      }
     }
   },
   "playground": {
