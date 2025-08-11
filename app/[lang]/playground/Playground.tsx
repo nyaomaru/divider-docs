@@ -214,9 +214,9 @@ export default function PlaygroundPage({ dict }: PlaygroundPageProps) {
             onChange={(e) => setInput(e.target.value)}
             className='w-full h-8 p-2 rounded border bg-zinc-900 text-white'
             placeholder={
-              functionType === 'csvDivider'
+              functionType === DIVIDER.CSV_DIVIDER
                 ? '"a, ""quoted""",b'
-                : functionType === 'emailDivider'
+                : functionType === DIVIDER.EMAIL_DIVIDER
                 ? 'user@example.com'
                 : '/usr/local/bin'
             }
