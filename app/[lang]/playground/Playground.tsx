@@ -16,9 +16,11 @@ import { useState } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/ui/components/tabs';
 import { Button } from '@/ui/components/button';
 import { Breadcrumbs } from '@/ui/components/breadcrumbs';
-import type { PlaygroundDictionary } from '@/types/dictionaries';
 import { Select } from '@/ui/components/select';
+import { CheckboxWithLabel } from '@/ui/components/checkbox-with-label';
 import { LabeledNumberInput } from '@/ui/components/labeled-number-input';
+import { LabeledInput } from '@/ui/components/labeled-input';
+import type { PlaygroundDictionary } from '@/types/dictionaries';
 
 const STRING = 'string';
 const ARRAY = 'array';
@@ -274,22 +276,15 @@ export default function PlaygroundPage({ dict }: PlaygroundPageProps) {
           if (key === OPTIONS.FLATTEN && isStringInput) return null;
 
           return (
-            <label
+            <CheckboxWithLabel
               key={key}
-              htmlFor={`${key}-option`}
-              className='flex items-center gap-2'
-            >
-              <input
-                id={`${key}-option`}
-                type='checkbox'
-                checked={options[key]}
-                onChange={(e) =>
-                  setOptions((prev) => ({ ...prev, [key]: e.target.checked }))
-                }
-                className='accent-white'
-              />
-              {key}
-            </label>
+              id={`${key}-option`}
+              label={key}
+              checked={options[key]}
+              onChange={(checked) =>
+                setOptions((prev) => ({ ...prev, [key]: checked }))
+              }
+            />
           );
         })}
         {!isPreset && (
@@ -312,49 +307,33 @@ export default function PlaygroundPage({ dict }: PlaygroundPageProps) {
 
         {functionType === DIVIDER.CSV_DIVIDER && (
           <div className='flex items-center gap-4 flex-wrap'>
-            <label className='flex items-center gap-2'>
-              <span className='text-sm'>delimiter</span>
-              <input
-                className='w-16 rounded border bg-zinc-900 text-white px-2 py-1 font-mono'
-                maxLength={1}
-                value={csvDelimiter}
-                onChange={(e) => setCsvDelimiter(e.target.value)}
-              />
-            </label>
-            <label className='flex items-center gap-2'>
-              <span className='text-sm'>quoteChar</span>
-              <input
-                className='w-16 rounded border bg-zinc-900 text-white px-2 py-1 font-mono'
-                maxLength={1}
-                value={csvQuote}
-                onChange={(e) => setCsvQuote(e.target.value)}
-              />
-            </label>
+            <LabeledInput
+              label='delimiter'
+              value={csvDelimiter}
+              onChange={setCsvDelimiter}
+            />
+            <LabeledInput
+              label='quoteChar'
+              value={csvQuote}
+              onChange={setCsvQuote}
+            />
           </div>
         )}
 
         {functionType === DIVIDER.EMAIL_DIVIDER && (
-          <label className='flex items-center gap-2'>
-            <input
-              type='checkbox'
-              checked={emailSplitTLD}
-              onChange={(e) => setEmailSplitTLD(e.target.checked)}
-              className='accent-white'
-            />
-            <span>splitTLD</span>
-          </label>
+          <CheckboxWithLabel
+            label='splitTLD'
+            checked={emailSplitTLD}
+            onChange={setEmailSplitTLD}
+          />
         )}
 
         {functionType === DIVIDER.PATH_DIVIDER && (
-          <label className='flex items-center gap-2'>
-            <input
-              type='checkbox'
-              checked={pathCollapse}
-              onChange={(e) => setPathCollapse(e.target.checked)}
-              className='accent-white'
-            />
-            <span>collapse</span>
-          </label>
+          <CheckboxWithLabel
+            label='collapse'
+            checked={pathCollapse}
+            onChange={setPathCollapse}
+          />
         )}
       </section>
 
