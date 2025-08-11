@@ -7,6 +7,7 @@ import { APIReferenceCard } from '@/ui/divider-docs/api-reference-card';
 import { installTabs, installCode, usageTabs, usageCode } from '@/lib/docs';
 import { getDictionary, type Locale } from '@/lib/dictionaries';
 import { generateApiReferences } from '@/lib/api-references';
+import { generatePresets } from '@/lib/presets';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -23,6 +24,7 @@ export default async function DividerDocs({
   const dict = await getDictionary(lang ?? 'en');
 
   const apiReferences = generateApiReferences(dict.top);
+  const presets = generatePresets(dict.top);
 
   return (
     <main className='container mx-auto px-4 py-12'>
@@ -206,29 +208,15 @@ export default async function DividerDocs({
         <p className='text-zinc-400 mb-6'>{dict.top.presets?.description}</p>
 
         <div className='grid gap-6 md:grid-cols-2 lg:grid-cols-3'>
-          {/* emailDivider */}
-          <FeatureCard
-            id='preset-email'
-            title={dict.top.presets?.email?.title}
-            aria-labelledby='preset-email'
-            description={dict.top.presets?.email?.description}
-          />
-
-          {/* csvDivider */}
-          <FeatureCard
-            id='preset-csv'
-            title={dict.top.presets?.csv?.title}
-            aria-labelledby='preset-csv'
-            description={dict.top.presets?.csv?.description}
-          />
-
-          {/* pathDivider */}
-          <FeatureCard
-            id='preset-path'
-            title={dict.top.presets?.path?.title}
-            aria-labelledby='preset-path'
-            description={dict.top.presets?.path?.description}
-          />
+          {presets.map(({ id, title, description }) => (
+            <FeatureCard
+              key={id}
+              id={id}
+              title={title}
+              aria-labelledby={id}
+              description={description}
+            />
+          ))}
         </div>
 
         <div className='text-center mt-8'>
