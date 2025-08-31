@@ -21,7 +21,7 @@ export function Select<T extends string>({
     <RadixSelect.Root value={value} onValueChange={onValueChange}>
       <RadixSelect.Trigger
         className={clsx(
-          'w-1xl inline-flex items-center justify-between rounded-md border border-white bg-zinc-900 px-3 py-2 text-sm text-white shadow-sm focus:outline-none focus:ring-1 hover:text-primary hover:border-primary cursor-pointer',
+          'w-1xl inline-flex items-center justify-between rounded-md border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-900 shadow-sm focus:outline-none focus:ring-1 hover:text-primary hover:border-primary cursor-pointer dark:border-white dark:bg-zinc-900 dark:text-white',
           className
         )}
       >
@@ -34,14 +34,14 @@ export function Select<T extends string>({
       <RadixSelect.Portal>
         <RadixSelect.Content
           side='bottom'
-          className='z-50 mt-1 w-full rounded-md bg-zinc-900 text-white shadow-md'
+          className='z-50 mt-1 w-full rounded-md bg-white text-zinc-900 shadow-md dark:bg-zinc-900 dark:text-white'
         >
           <RadixSelect.Viewport className='p-1'>
             {options.map((option) => (
               <RadixSelect.Item
                 key={option}
                 value={option}
-                className='flex cursor-pointer select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none hover:bg-zinc-800 focus:bg-zinc-800'
+                className='flex cursor-pointer select-none items-center rounded-sm px-2 py-1.5 text-sm text-zinc-900 outline-none hover:bg-zinc-100 focus:bg-zinc-100 dark:text-white dark:hover:bg-zinc-800 dark:focus:bg-zinc-800'
               >
                 <RadixSelect.ItemText>{option}</RadixSelect.ItemText>
                 <RadixSelect.ItemIndicator className='ml-auto'>

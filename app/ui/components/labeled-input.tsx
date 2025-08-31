@@ -15,7 +15,7 @@ export function LabeledInput({
     <label className='flex items-center gap-2'>
       <span className='text-sm'>{label}</span>
       <input
-        className='w-16 rounded border bg-zinc-900 text-white px-2 py-1 font-mono'
+        className='w-16 rounded border border-zinc-200 bg-white text-zinc-900 px-2 py-1 font-mono dark:border-zinc-800 dark:bg-zinc-900 dark:text-white'
         maxLength={maxLength}
         value={value}
         onChange={(e) => onChange(e.target.value)}

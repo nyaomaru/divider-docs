@@ -36,7 +36,7 @@ export function LabeledNumberInput({
         placeholder={placeholder}
         className={clsx(
           widthClass,
-          'p-1 rounded border bg-zinc-900 text-white focus:outline-none focus:ring-1 focus:ring-white'
+          'p-1 rounded border border-zinc-200 bg-white text-zinc-900 focus:outline-none focus:ring-1 focus:ring-zinc-900 dark:border-zinc-800 dark:bg-zinc-900 dark:text-white dark:focus:ring-white'
         )}
       />
     </div>
