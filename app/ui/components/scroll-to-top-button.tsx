@@ -29,7 +29,7 @@ export function ScrollToTopButton() {
       aria-label='Scroll to top'
       onClick={scrollToTop}
       className={clsx(
-        'fixed bottom-5 right-5 p-3 bg-gray-800 text-white rounded-full shadow-lg transition-opacity cursor-pointer hover:text-primary',
+        'fixed bottom-5 right-5 p-3 bg-zinc-200 text-zinc-900 rounded-full shadow-lg transition-opacity cursor-pointer hover:text-primary dark:bg-gray-800 dark:text-white',
         isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'
       )}
     >

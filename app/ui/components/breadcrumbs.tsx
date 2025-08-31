@@ -18,7 +18,10 @@ export function Breadcrumbs({ paths }: BreadcrumbsProps) {
         >
           {!isFirstPath(index) && <ChevronRight className='w-4 h-4' />}
           {isNavigable(path) ? (
-            <Link href={path.href} className='text-white hover:underline'>
+            <Link
+              href={path.href}
+              className='text-zinc-900 hover:underline dark:text-white'
+            >
               {path.label}
             </Link>
           ) : (

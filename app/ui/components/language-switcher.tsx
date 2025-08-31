@@ -43,11 +43,14 @@ export function LanguageSwitcher() {
           <Globe className='h-4 w-4' />
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align='end' className='z-10 bg-black'>
+      <DropdownMenuContent
+        align='end'
+        className='z-10 bg-white text-zinc-900 dark:bg-black dark:text-white'
+      >
         {locales.map(({ code, label, flag }) => (
           <DropdownMenuItem
             className={clsx(
-              'cursor-pointer flex m-2 bg-black',
+              'cursor-pointer flex m-2 bg-white text-zinc-900 dark:bg-black dark:text-white',
               code === currentLocale ? 'text-primary' : ''
             )}
             key={code}
