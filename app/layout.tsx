@@ -6,7 +6,7 @@ import type { Metadata } from 'next';
 import { Header } from '@/ui/components/header';
 import { Footer } from '@/ui/components/footer';
 import { ScrollToTopButton } from '@/ui/components/scroll-to-top-button';
-import { ThemeProvider } from 'next-themes';
+import { ThemeProvider } from '@/ui/components/theme-provider';
 
 export const metadata: Metadata = {
   title: 'Divider',
@@ -39,9 +39,9 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang='en'>
+    <html lang='en' suppressHydrationWarning>
       <body>
-        <ThemeProvider attribute='class' defaultTheme='dark' enableSystem={false}>
+        <ThemeProvider>
           <div className='min-h-screen'>
             <Header />
             {children}

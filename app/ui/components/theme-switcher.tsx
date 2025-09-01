@@ -7,13 +7,13 @@ import { useTheme } from 'next-themes';
 import { Button } from '@/ui/components/button';
 
 export function ThemeSwitcher() {
-  const { theme, setTheme } = useTheme();
+  const { resolvedTheme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => setMounted(true), []);
 
   const toggleTheme = () => {
-    setTheme(theme === 'dark' ? 'light' : 'dark');
+    setTheme(resolvedTheme === 'dark' ? 'light' : 'dark');
   };
 
   if (!mounted) {
@@ -37,7 +37,7 @@ export function ThemeSwitcher() {
       onClick={toggleTheme}
       aria-label='Toggle theme'
     >
-      {theme === 'dark' ? (
+      {resolvedTheme === 'dark' ? (
         <Sun className='h-4 w-4' />
       ) : (
         <Moon className='h-4 w-4' />
