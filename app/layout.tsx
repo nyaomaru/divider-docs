@@ -6,7 +6,6 @@ import type { Metadata } from 'next';
 import { Header } from '@/ui/components/header';
 import { Footer } from '@/ui/components/footer';
 import { ScrollToTopButton } from '@/ui/components/scroll-to-top-button';
-import { ThemeProvider } from 'next-themes';
 
 export const metadata: Metadata = {
   title: 'Divider',
@@ -41,14 +40,12 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang='en'>
       <body>
-        <ThemeProvider attribute='class' defaultTheme='dark' enableSystem={false}>
-          <div className='min-h-screen'>
-            <Header />
-            {children}
-            <ScrollToTopButton />
-            <Footer />
-          </div>
-        </ThemeProvider>
+        <div className='min-h-screen'>
+          <Header />
+          {children}
+          <ScrollToTopButton />
+          <Footer />
+        </div>
       </body>
     </html>
   );
