@@ -2,7 +2,7 @@ import { LogoLink } from '@/ui/components/logo-link';
 
 export function Footer() {
   return (
-    <footer className='border-t border-zinc-200 py-8 dark:border-zinc-800'>
+    <footer className='border-t border-zinc-800 py-8'>
       <div className='container mx-auto flex flex-col md:flex-row justify-between items-center'>
         <div className='flex items-center gap-2 mb-4 md:mb-0'>
           <LogoLink />
@@ -14,7 +14,7 @@ export function Footer() {
           Made with 💚 by{' '}
           <a
             href='https://github.com/nyaomaru'
-            className='underline hover:text-zinc-900 dark:hover:text-white'
+            className='underline hover:text-white'
           >
             nyaomaru
           </a>

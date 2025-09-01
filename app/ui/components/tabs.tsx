@@ -15,8 +15,8 @@ const baseListClass =
 const baseTriggerClass = clsx(
   'inline-flex items-center justify-center whitespace-nowrap rounded-sm px-3 py-2 text-sm font-medium',
   'ring-offset-background transition-all focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2',
-  'hover:text-primary hover:border-primary cursor-pointer border border-zinc-200 dark:border-zinc-950',
-  'data-[state=active]:border-black data-[state=active]:text-black dark:data-[state=active]:border-white dark:data-[state=active]:text-white'
+  'hover:text-primary hover:border-primary cursor-pointer border border-zinc-950',
+  'data-[state=active]:border-white data-[state=active]:text-white'
 );
 
 const baseContentClass = 'mt-2 focus:outline-none';

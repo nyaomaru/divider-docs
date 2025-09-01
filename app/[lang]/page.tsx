@@ -73,8 +73,8 @@ export default async function DividerDocs({
 
             return (
               <TabsContent key={tab} value={tab} className='mb-8'>
-                <div className='rounded-lg border border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-900'>
-                  <div className='flex items-center justify-between px-4 py-2 border-b border-zinc-200 dark:border-zinc-800'>
+                <div className='rounded-lg border border-zinc-800 bg-zinc-900'>
+                  <div className='flex items-center justify-between px-4 py-2 border-b border-zinc-800'>
                     <h3>{tab}</h3>
                     <CopyButton
                       text={installCommand}
@@ -110,8 +110,8 @@ export default async function DividerDocs({
 
             return (
               <TabsContent key={tab} value={tab} className='mb-8'>
-                <div className='rounded-lg border border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-900'>
-                  <div className='flex items-center justify-between px-4 py-2 border-b border-zinc-200 dark:border-zinc-800'>
+                <div className='rounded-lg border border-zinc-800 bg-zinc-900'>
+                  <div className='flex items-center justify-between px-4 py-2 border-b border-zinc-800'>
                     <h3>{tab}</h3>
                     <CopyButton text={usageCommand} aria-label='Copy command' />
                   </div>

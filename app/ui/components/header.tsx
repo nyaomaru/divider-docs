@@ -13,7 +13,7 @@ export function Header() {
   const currentLang = pathname?.split('/')[1] || 'en';
 
   return (
-    <header className='sticky top-0 z-10 border-b border-zinc-200 bg-white/80 dark:border-zinc-800 dark:bg-zinc-950/80 backdrop-blur-sm'>
+    <header className='sticky top-0 z-10 border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-sm'>
       <div className='container mx-auto flex h-16 items-center justify-between'>
         <div className='flex items-center gap-2'>
           <LogoLink />

@@ -194,7 +194,7 @@ export default function PlaygroundPage({ dict }: PlaygroundPageProps) {
             <input
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              className='w-full h-8 p-2 rounded border border-zinc-200 bg-white text-zinc-900 dark:border-zinc-800 dark:bg-zinc-900 dark:text-white'
+              className='w-full h-8 p-2 rounded border bg-zinc-900 text-white'
               placeholder={dict.playground.string.placeholder}
             />
           </TabsContent>
@@ -203,7 +203,7 @@ export default function PlaygroundPage({ dict }: PlaygroundPageProps) {
             <textarea
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              className='w-full h-24 p-2 rounded border border-zinc-200 bg-white text-zinc-900 dark:border-zinc-800 dark:bg-zinc-900 dark:text-white'
+              className='w-full h-24 p-2 rounded border bg-zinc-900 text-white'
               placeholder={dict.playground.array.placeholder}
             />
           </TabsContent>
@@ -214,7 +214,7 @@ export default function PlaygroundPage({ dict }: PlaygroundPageProps) {
           <input
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            className='w-full h-8 p-2 rounded border border-zinc-200 bg-white text-zinc-900 dark:border-zinc-800 dark:bg-zinc-900 dark:text-white'
+            className='w-full h-8 p-2 rounded border bg-zinc-900 text-white'
             placeholder={
               functionType === DIVIDER.CSV_DIVIDER
                 ? '"a, ""quoted""",b'
@@ -237,7 +237,7 @@ export default function PlaygroundPage({ dict }: PlaygroundPageProps) {
           <textarea
             value={separators}
             onChange={(e) => setSeparators(e.target.value)}
-            className='w-full h-16 p-2 rounded border border-zinc-200 bg-white text-zinc-900 dark:border-zinc-800 dark:bg-zinc-900 dark:text-white'
+            className='w-full h-16 p-2 rounded border bg-zinc-900 text-white'
           />
         </div>
       ) : null}
@@ -338,7 +338,7 @@ export default function PlaygroundPage({ dict }: PlaygroundPageProps) {
       </section>
 
       {output !== null && (
-        <div className='p-4 border rounded bg-zinc-100 text-zinc-900 whitespace-pre-wrap break-words mb-6 dark:bg-zinc-800 dark:text-white border-zinc-200 dark:border-zinc-800'>
+        <div className='p-4 border rounded bg-zinc-800 text-white whitespace-pre-wrap break-words mb-6'>
           <strong> {dict.playground.output.title}:</strong>
           <pre className='mt-2'>{JSON.stringify(output, null, 2)}</pre>
         </div>
