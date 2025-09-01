@@ -7,7 +7,6 @@ import { usePathname } from 'next/navigation';
 import { LogoLink } from '@/ui/components/logo-link';
 import { Button } from '@/ui/components/button';
 import { LanguageSwitcher } from '@/ui/components/language-switcher';
-import { ThemeSwitcher } from '@/ui/components/theme-switcher';
 
 export function Header() {
   const pathname = usePathname();
@@ -55,7 +54,6 @@ export function Header() {
             </a>
           </Button>
           <LanguageSwitcher />
-          <ThemeSwitcher />
         </div>
       </div>
     </header>
