@@ -13,6 +13,7 @@ import {
 } from '@nyaomaru/divider';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
+import { equals, oneOfValues } from 'is-kit';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/ui/components/tabs';
 import { Button } from '@/ui/components/button';
 import { Breadcrumbs } from '@/ui/components/breadcrumbs';
@@ -90,12 +91,13 @@ export default function PlaygroundPage({ dict }: PlaygroundPageProps) {
   const [emailSplitTLD, setEmailSplitTLD] = useState<boolean>(false);
   const [pathCollapse, setPathCollapse] = useState<boolean>(true);
 
-  const isPreset =
-    functionType === DIVIDER.CSV_DIVIDER ||
-    functionType === DIVIDER.EMAIL_DIVIDER ||
-    functionType === DIVIDER.PATH_DIVIDER;
+  const isPreset = oneOfValues(
+    DIVIDER.CSV_DIVIDER,
+    DIVIDER.EMAIL_DIVIDER,
+    DIVIDER.PATH_DIVIDER
+  )(functionType);
 
-  const isStringInput = inputType === STRING;
+  const isStringInput = equals(STRING)(inputType);
 
   const getParsedInput = (): string | string[] =>
     isStringInput ? input : input.split(/\r?\n/).filter(Boolean);
