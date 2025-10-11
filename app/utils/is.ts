@@ -1,23 +1,10 @@
-export const isCommandNpm = (usage: string): usage is 'npm' => {
-  return usage === 'npm';
-};
+import { equals } from 'is-kit';
 
-export const isCommandPnpm = (usage: string): usage is 'pnpm' => {
-  return usage === 'pnpm';
-};
+// Use is-kit primitives directly without local wrappers
+export const isCommandNpm = equals('npm');
+export const isCommandPnpm = equals('pnpm');
+export const isCommandBun = equals('bun');
+export const isCommandYarn = equals('yarn');
 
-export const isCommandBun = (usage: string): usage is 'bun' => {
-  return usage === 'bun';
-};
-
-export const isCommandYarn = (usage: string): usage is 'yarn' => {
-  return usage === 'yarn';
-};
-
-export const isUsageBasic = (usage: string): usage is 'basic' => {
-  return usage === 'basic';
-};
-
-export const isUsageAdvanced = (usage: string): usage is 'advanced' => {
-  return usage === 'advanced';
-};
+export const isUsageBasic = equals('basic');
+export const isUsageAdvanced = equals('advanced');

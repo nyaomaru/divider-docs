@@ -4,10 +4,13 @@ import type {
   BreadcrumbPath,
   BreadcrumbsProps,
 } from '@/types/ui/components/breadcrumbs';
+import { define, equals, isString } from 'is-kit';
 
 export function Breadcrumbs({ paths }: BreadcrumbsProps) {
-  const isFirstPath = (index: number) => index === 0;
-  const isNavigable = (path: BreadcrumbPath) => path.href !== undefined;
+  const isFirstPath = equals(0);
+  const isNavigable = define<BreadcrumbPath & { href: string }>((path) =>
+    isString((path as BreadcrumbPath).href)
+  );
 
   return (
     <nav className='text-sm text-zinc-400 mb-6 flex items-center gap-1'>
