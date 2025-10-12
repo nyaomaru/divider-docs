@@ -45,26 +45,6 @@ export type TopDictionary = {
         dividerLoop: string;
         dividerNumberString: string;
       };
-      optionsDoc: {
-        title: string;
-        columns: {
-          option: string;
-          type: string;
-          default: string;
-          description: string;
-        };
-        rows: Array<{
-          option: string;
-          type: string;
-          default: string;
-          description: string;
-        }>;
-        preserveEmpty: {
-          heading: string;
-          description: string;
-          note: string;
-        };
-      };
       function: {
         parameters: {
           title: string;
