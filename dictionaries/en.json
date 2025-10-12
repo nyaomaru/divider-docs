@@ -45,6 +45,46 @@
         "dividerLoop": "Divides the input into equal-sized chunks by the given number. Useful for fixed-width slicing.",
         "dividerNumberString": "Divides inputs number and string."
       },
+      "optionsDoc": {
+        "title": "🎯 General Options",
+        "columns": {
+          "option": "Option",
+          "type": "Type",
+          "default": "Default",
+          "description": "Description"
+        },
+        "rows": [
+          {
+            "option": "`flatten`",
+            "type": "`boolean`",
+            "default": "`false`",
+            "description": "If `true`, the resulting nested arrays are flattened into a single array."
+          },
+          {
+            "option": "`trim`",
+            "type": "`boolean`",
+            "default": "`false`",
+            "description": "If `true`, trims whitespace from each divided segment."
+          },
+          {
+            "option": "`preserveEmpty`",
+            "type": "`boolean`",
+            "default": "`false`",
+            "description": "If `true`, keeps empty segments produced by the split."
+          },
+          {
+            "option": "`exclude`",
+            "type": "`'none' / 'empty' / 'whitespace'`",
+            "default": "`'none'`",
+            "description": "See detailed explanation below."
+          }
+        ],
+        "preserveEmpty": {
+          "heading": "`preserveEmpty` (default: `false`)",
+          "description": "Keep placeholder blanks when they carry meaning (e.g., CSV cells, sparse logs, diff tooling).",
+          "note": "Combine with `exclude` to filter later in the pipeline."
+        }
+      },
       "function": {
         "parameters": {
           "title": "Parameters",
@@ -56,6 +96,7 @@
         "options": {
           "title": "Options",
           "flatten": "Boolean - When true, flattens the result into a single array",
+          "preserveEmpty": "Boolean - When true, keeps empty segments produced by the split",
           "trim": "Boolean - When true, trims whitespace from each divided segment",
           "exclude": "`'none' | 'empty' | 'whitespace'` - How to exclude empty segments and whitespaces from the result",
           "startOffset": "Number - Starting index offset when dividing into chunks (only for `dividerLoop`)",

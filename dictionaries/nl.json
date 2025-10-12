@@ -45,6 +45,46 @@
         "dividerLoop": "Verdeelt de invoer in stukken van gelijke grootte op basis van het opgegeven aantal. Handig voor het splitsen op vaste lengte.",
         "dividerNumberString": "Verdeelt invoer van number en string."
       },
+      "optionsDoc": {
+        "title": "🎯 Algemene Opties",
+        "columns": {
+          "option": "Optie",
+          "type": "Type",
+          "default": "Standaard",
+          "description": "Beschrijving"
+        },
+        "rows": [
+          {
+            "option": "`flatten`",
+            "type": "`boolean`",
+            "default": "`false`",
+            "description": "Indien waar, maakt geneste arrays plat tot één enkele array."
+          },
+          {
+            "option": "`trim`",
+            "type": "`boolean`",
+            "default": "`false`",
+            "description": "Indien waar, verwijdert witruimte uit elk gesplitst segment."
+          },
+          {
+            "option": "`preserveEmpty`",
+            "type": "`boolean`",
+            "default": "`false`",
+            "description": "Indien waar, behoudt lege segmenten die door de splitsing worden aangemaakt."
+          },
+          {
+            "option": "`exclude`",
+            "type": "`'none' / 'empty' / 'whitespace'`",
+            "default": "`'none'`",
+            "description": "Zie de onderstaande uitgebreide uitleg."
+          }
+        ],
+        "preserveEmpty": {
+          "heading": "`preserveEmpty` (standaard: `false`)",
+          "description": "Behoud lege placeholders wanneer ze betekenis dragen (bijv. CSV-cellen, sparse logs, diff-tools).",
+          "note": "Combineer met `exclude` om later in de pijplijn te filteren."
+        }
+      },
       "function": {
         "parameters": {
           "title": "Parameters",
@@ -56,6 +96,7 @@
         "options": {
           "title": "Opties",
           "flatten": "Boolean - Indien waar, maakt het resultaat plat in een enkele matrix",
+          "preserveEmpty": "Boolean - Indien waar, behoudt lege segmenten die door de splitsing worden aangemaakt",
           "trim": "Boolean - Indien waar, worden witregels uit elk opgedeeld segment verwijderd",
           "exclude": "`'none' | 'empty' | 'whitespace'` - Hoe lege segmenten en witruimtes uit het resultaat te verwijderen",
           "startOffset": "Nummer - Startindex offset bij het splitsen in stukken (alleen voor `dividerLoop`)",

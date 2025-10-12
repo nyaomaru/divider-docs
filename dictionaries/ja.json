@@ -45,6 +45,46 @@
         "dividerLoop": "固定幅のチャンクサイズで文字列を分割します。一定の文字数でスライスしたいときに便利です。",
         "dividerNumberString": "数値と文字列を分割します。"
       },
+      "optionsDoc": {
+        "title": "🎯 一般的なオプション",
+        "columns": {
+          "option": "オプション",
+          "type": "型",
+          "default": "デフォルト",
+          "description": "説明"
+        },
+        "rows": [
+          {
+            "option": "`flatten`",
+            "type": "`boolean`",
+            "default": "`false`",
+            "description": "true の場合、結果のネストされた配列を単一の配列にフラット化します。"
+          },
+          {
+            "option": "`trim`",
+            "type": "`boolean`",
+            "default": "`false`",
+            "description": "true の場合、分割された各セグメントの前後の空白をトリミングします。"
+          },
+          {
+            "option": "`preserveEmpty`",
+            "type": "`boolean`",
+            "default": "`false`",
+            "description": "true の場合、分割によって生成された空のセグメントを保持します。"
+          },
+          {
+            "option": "`exclude`",
+            "type": "`'none' / 'empty' / 'whitespace'`",
+            "default": "`'none'`",
+            "description": "詳細な説明は下記を参照してください。"
+          }
+        ],
+        "preserveEmpty": {
+          "heading": "`preserveEmpty` (デフォルト: `false`)",
+          "description": "CSV の空セルやスパースなログ、差分ツールなど、空のプレースホルダーに意味がある場合に保持します。",
+          "note": "`exclude` と組み合わせると、後続の処理でフィルタリングできます。"
+        }
+      },
       "function": {
         "parameters": {
           "title": "パラメーター",
@@ -56,6 +96,7 @@
         "options": {
           "title": "オプション",
           "flatten": "Boolean - trueの場合、結果を1つの配列にフラット化します。",
+          "preserveEmpty": "Boolean - true の場合、分割で生成された空のセグメントを保持します。",
           "trim": "Boolean - trueの場合、結果に含まれる空白をトリムします。",
           "exclude": "`'none' | 'empty' | 'whitespace'` - 結果から空のセグメントや空白を除外する方法を指定します。",
           "startOffset": "Number - 分割する際の開始インデックスオフセット（`dividerLoop` のみ）",
