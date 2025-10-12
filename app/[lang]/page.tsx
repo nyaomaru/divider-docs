@@ -25,13 +25,6 @@ export default async function DividerDocs({
 
   const apiReferences = generateApiReferences(dict.top);
   const presets = generatePresets(dict.top);
-  const optionsDoc = dict.top.api.optionsDoc;
-  const stripBackticks = (value: string) => value.replace(/`/g, '');
-  const preserveEmptyExample = `const defaultResult = divider('foo,,bar,', ',');
-// ['foo', 'bar']
-
-const preservedResult = divider('foo,,bar,', ',', { preserveEmpty: true });
-// ['foo', '', 'bar', '']`;
 
   return (
     <main className='container mx-auto px-4 py-12'>
