@@ -56,6 +56,7 @@
         "options": {
           "title": "Options",
           "flatten": "Boolean - When true, flattens the result into a single array",
+          "preserveEmpty": "Boolean - When true, keeps empty segments produced by the split",
           "trim": "Boolean - When true, trims whitespace from each divided segment",
           "exclude": "`'none' | 'empty' | 'whitespace'` - How to exclude empty segments and whitespaces from the result",
           "startOffset": "Number - Starting index offset when dividing into chunks (only for `dividerLoop`)",

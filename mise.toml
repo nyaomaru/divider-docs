@@ -1,0 +1,12 @@
+[tools]
+node = "22"
+pnpm = "10"
+
+[tasks.dev]
+run = "pnpm dev"
+
+[tasks.build]
+run = "pnpm build"
+
+[tasks.lint]
+run = "pnpm lint"

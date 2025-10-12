@@ -12,6 +12,10 @@ export const generateApiReferences = (dict: TopDictionary['top']) => [
     ],
     options: [
       { name: 'flatten', description: dict.api.function.options.flatten },
+      {
+        name: 'preserveEmpty',
+        description: dict.api.function.options.preserveEmpty,
+      },
       { name: 'trim', description: dict.api.function.options.trim },
       {
         name: 'exclude',

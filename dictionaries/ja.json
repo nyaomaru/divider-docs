@@ -56,6 +56,7 @@
         "options": {
           "title": "オプション",
           "flatten": "Boolean - trueの場合、結果を1つの配列にフラット化します。",
+          "preserveEmpty": "Boolean - true の場合、分割で生成された空のセグメントを保持します。",
           "trim": "Boolean - trueの場合、結果に含まれる空白をトリムします。",
           "exclude": "`'none' | 'empty' | 'whitespace'` - 結果から空のセグメントや空白を除外する方法を指定します。",
           "startOffset": "Number - 分割する際の開始インデックスオフセット（`dividerLoop` のみ）",

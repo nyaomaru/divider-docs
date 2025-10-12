@@ -56,6 +56,7 @@ export type TopDictionary = {
         options: {
           title: string;
           flatten: string;
+          preserveEmpty: string;
           trim: string;
           exclude: string;
           startOffset: string;
