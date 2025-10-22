@@ -29,16 +29,16 @@ export default async function DividerDocs({
   return (
     <main className='container mx-auto px-4 py-12'>
       <section className='mb-16 flex flex-col items-center text-center'>
-        <Link href='https://github.com/nyaomaru/divider'>
+        <Link href='https://github.com/nyaomaru/divider' className='mt-4'>
           <Image
             className='mb-6'
-            src='/logo.svg'
+            src='/divider_logo1.svg'
             alt='divider logo'
-            width={128}
+            width={256}
             height={128}
           />
         </Link>
-        <h1 id='divider-title' className='text-4xl font-bold mb-4'>
+        <h1 id='divider-title' className='text-2xl font-bold mb-4 mt-2'>
           {dict.top.title}
         </h1>
         <p className='text-xl text-zinc-400 max-w-2xl mb-8'>
