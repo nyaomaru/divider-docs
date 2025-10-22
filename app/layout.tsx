@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     images: ['https://divider.vercel.app/divider_logo_image.svg'],
   },
   icons: {
-    icon: '/favicon.ico',
+    icon: '/divider_icon.png',
   },
 };
 
