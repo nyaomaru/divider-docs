@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     url: 'https://divider.vercel.app',
     images: [
       {
-        url: 'https://divider.vercel.app/logo.svg',
+        url: 'https://divider.vercel.app/divider_logo_image.svg',
         width: 256,
         height: 256,
         alt: 'Divider Logo',
@@ -29,10 +29,10 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Divider',
     description: 'The documentation for the Divider library',
-    images: ['https://divider.vercel.app/logo.svg'],
+    images: ['https://divider.vercel.app/divider_logo_image.svg'],
   },
   icons: {
-    icon: '/favicon.ico',
+    icon: '/divider_icon.png',
   },
 };
 

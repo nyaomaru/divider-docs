@@ -17,9 +17,6 @@ export function Header() {
       <div className='container mx-auto flex h-16 items-center justify-between'>
         <div className='flex items-center gap-2'>
           <LogoLink />
-          <span className='relative font-bold text-xl before:absolute before:bottom-0 before:left-0 before:h-0.5 before:w-0 before:bg-primary before:transition-all before:duration-300 hover:before:w-full'>
-            @nyaomaru/divider
-          </span>
         </div>
         <div className='flex items-center gap-4'>
           <Button variant='outline' size='sm' asChild>
