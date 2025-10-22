@@ -3,15 +3,18 @@
 
 @layer base {
   :root {
-    --primary: #8ff476;
+    /* --primary: #8ff476; */
+    --primary: rgb(134, 170, 87);
   }
 
   .dark {
-    --primary: #8ff476;
+    /* --primary: #8ff476; */
+    --primary: rgb(134, 170, 87);
   }
 
   body {
     @apply bg-zinc-950 text-white;
+    /* color: rgb(134, 170, 87); */
   }
 
   code {
@@ -36,7 +39,7 @@ h3 {
 }
 
 ::-webkit-scrollbar {
-  width: 16px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
@@ -49,5 +52,5 @@ h3 {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #8ff476;
+  background: var(--primary);
 }
