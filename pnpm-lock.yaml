@@ -27,8 +27,8 @@ importers:
         specifier: ^1.1.12
         version: 1.1.12(@types/react@19.0.10)(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       is-kit:
-        specifier: ^1.1.2
-        version: 1.1.2
+        specifier: ^1.1.3
+        version: 1.1.3
       lucide-react:
         specifier: ^0.476.0
         version: 0.476.0(react@19.1.1)
@@ -1563,8 +1563,8 @@ packages:
     resolution: {integrity: sha512-xelSayHH36ZgE7ZWhli7pW34hNbNl8Ojv5KVmkJD4hBdD3th8Tfk9vYasLM+mXWOZhFkgZfxhLSnrwRr4elSSg==}
     engines: {node: '>=0.10.0'}
 
-  is-kit@1.1.2:
-    resolution: {integrity: sha512-jBBC9zsDENpyH0oLSjGm+V77UD3HbMijxdzxBKWfjjWvk/vNx7PVaqewowxr1zRK1w/Xc9FcOOtrAyJTnP/7mw==}
+  is-kit@1.1.3:
+    resolution: {integrity: sha512-rZoT1oG5RZd9KHLX9Mx+GDejEgIAuPulHrucYRKgW6W42nZpFlAppY5Dp/NqWN/QGlyGobXfNN4pHbp+U1S9YA==}
 
   is-map@2.0.3:
     resolution: {integrity: sha512-1Qed0/Hr2m+YqxnM09CjA2d/i6YZNfF6R2oRAOj36eUdS6qIV/huPJNSEpKbupewFs+ZsJlxsjjPbc0/afW6Lw==}
@@ -3827,7 +3827,7 @@ snapshots:
     dependencies:
       is-extglob: 2.1.1
 
-  is-kit@1.1.2: {}
+  is-kit@1.1.3: {}
 
   is-map@2.0.3: {}
 
