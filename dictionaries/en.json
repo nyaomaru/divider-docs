@@ -83,6 +83,10 @@
       "path": {
         "title": "pathDivider()",
         "description": "Divide file paths by `/` or `|`, with options to trim or keep empty segments."
+      },
+      "query": {
+        "title": "queryDivider()",
+        "description": "Divide query strings into key/value pairs, preserving empty segments and decoding values when needed."
       }
     }
   },

@@ -16,4 +16,9 @@ export const generatePresets = (dict: TopDictionary['top']) => [
     title: dict.presets?.path?.title,
     description: dict.presets?.path?.description,
   },
+  {
+    id: 'preset-query',
+    title: dict.presets?.query?.title,
+    description: dict.presets?.query?.description,
+  },
 ];
