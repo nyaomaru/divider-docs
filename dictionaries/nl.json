@@ -83,6 +83,10 @@
       "path": {
         "title": "pathDivider()",
         "description": "Verdeel bestands paden door `/` of `|`, met opties om lege segmenten te trimmen of te behouden."
+      },
+      "query": {
+        "title": "queryDivider()",
+        "description": "Verdeel querystrings in key/value-paren, behoud lege segmenten en decodeer waarden indien nodig."
       }
     }
   },

@@ -82,6 +82,10 @@ export type TopDictionary = {
         title: string;
         description: string;
       };
+      query: {
+        title: string;
+        description: string;
+      };
     };
   };
 };
