@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@nyaomaru/divider':
-        specifier: ^1.9.18
-        version: 1.9.18
+        specifier: ^1.9.19
+        version: 1.9.19
       '@radix-ui/react-dropdown-menu':
         specifier: ^2.1.15
         version: 2.1.15(@types/react@19.0.10)(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
@@ -380,8 +380,8 @@ packages:
     resolution: {integrity: sha512-nn5ozdjYQpUCZlWGuxcJY/KpxkWQs4DcbMCmKojjyrYDEAGy4Ce19NN4v5MduafTwJlbKc99UA8YhSVqq9yPZA==}
     engines: {node: '>=12.4.0'}
 
-  '@nyaomaru/divider@1.9.18':
-    resolution: {integrity: sha512-L9GG79i95qlvNgVdYmRcHaR8tlaOZr2qzl3P+gMeIYVJYC2l6K6PscYCEsNVi3ZZrFKVxczcVm0eOsRXnwWdQA==}
+  '@nyaomaru/divider@1.9.19':
+    resolution: {integrity: sha512-XMJxEKWN7uL5NLAQS54jPpDeDTlGBKEpmkCLMjt/gqTEuVkSeqj4CSXBljKonv1NAUaYTC1hl7WeEVKLX4kDKQ==}
     engines: {node: '>=18'}
 
   '@radix-ui/number@1.1.1':
@@ -2509,7 +2509,7 @@ snapshots:
 
   '@nolyfill/is-core-module@1.0.39': {}
 
-  '@nyaomaru/divider@1.9.18': {}
+  '@nyaomaru/divider@1.9.19': {}
 
   '@radix-ui/number@1.1.1': {}
 
