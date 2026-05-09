@@ -8,7 +8,8 @@ export function LogoLink() {
         src='/divider_logo2.svg'
         alt='divider logo'
         width={128}
-        height={32}
+        height={25}
+        style={{ height: 'auto' }}
       />
     </Link>
   );

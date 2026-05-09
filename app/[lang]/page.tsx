@@ -35,7 +35,8 @@ export default async function DividerDocs({
             src='/divider_logo1.svg'
             alt='divider logo'
             width={256}
-            height={128}
+            height={193}
+            style={{ height: 'auto' }}
           />
         </Link>
         <h1 id='divider-title' className='text-2xl font-bold mb-4 mt-2'>
