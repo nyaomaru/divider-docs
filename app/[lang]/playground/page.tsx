@@ -1,13 +1,13 @@
-import { getDictionary, type Locale } from '@/lib/dictionaries';
+import { getDictionary } from '@/lib/dictionaries';
 import Playground from './Playground';
 
 export default async function PlaygroundWrapper({
   params,
 }: {
-  params: Promise<{ lang: Locale }>;
+  params: Promise<{ lang: string }>;
 }) {
   const { lang } = await params;
-  const dict = await getDictionary(lang ?? 'en');
+  const dict = await getDictionary(lang);
 
   return <Playground dict={dict} />;
 }

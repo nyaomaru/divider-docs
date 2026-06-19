@@ -38,6 +38,7 @@ export type TopDictionary = {
     };
     api: {
       title: string;
+      fullReferenceLinkText: string;
       description: {
         divider: string;
         dividerFirst: string;
