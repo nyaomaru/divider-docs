@@ -5,23 +5,23 @@ import { FeatureCard } from '@/ui/components/feature-card';
 import { CodeBlock } from '@/ui/components/code-block';
 import { APIReferenceCard } from '@/ui/divider-docs/api-reference-card';
 import { installTabs, installCode, usageTabs, usageCode } from '@/lib/docs';
-import { getDictionary, type Locale } from '@/lib/dictionaries';
+import { getDictionary, localeCodes } from '@/lib/dictionaries';
 import { generateApiReferences } from '@/lib/api-references';
 import { generatePresets } from '@/lib/presets';
 import Image from 'next/image';
 import Link from 'next/link';
 
 export async function generateStaticParams() {
-  return [{ lang: 'en' }, { lang: 'ja' }, { lang: 'nl' }];
+  return localeCodes.map((lang) => ({ lang }));
 }
 
 export default async function DividerDocs({
   params,
 }: {
-  params: Promise<{ lang: Locale }>;
+  params: Promise<{ lang: string }>;
 }) {
   const { lang } = await params;
-  const dict = await getDictionary(lang ?? 'en');
+  const dict = await getDictionary(lang);
 
   const apiReferences = generateApiReferences(dict.top);
   const presets = generatePresets(dict.top);
